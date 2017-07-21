@@ -1,4 +1,4 @@
-%
+
 \documentclass{llncs}
 \usepackage{graphicx}
 \usepackage{listings}
@@ -28,6 +28,23 @@ Moreover, many portals that use the QB vocabulary often adopt different publishi
 In this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input and output) with Linked Open Statistical Data in a way that facilitated the development of generic software. In this way we keep the advantages of linked data (e.g. data integration) but hide all the complexity by supporting developers to use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of Linked Data technologies. Moreover, the API offers a uniform way to access the underlying data hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
 
 \section{Methodology}\label{sec:methodology}
+
+In order to achieve the objectives of the paper we adopt the following methodology:
+\begin{itemize}
+\item Study the related work. We focus on existing APIs that standardize the interaction with multidimensional data, as well as on existing data formats that can be exploited to represent the result (output) of the API. 
+\item Collect user requirements. We organized a workshop to collect the needs and requirements of developers that currently develop applications for Linked Open Statistical data, using the ``traditional" tooling (e.g. RDF, SPARQL, QB vocabulary). 
+\end{itemize}
+
+Currently, there exist some API that handle data cubes and facilitate the performing of online analytical processing (OLAP) operations. OLAP enable users to analyze multidimensional data interactively from multiple perspectives. An API that handles data cubes is developed by Oracle \cite{ORACLEAPI}. The API allow users to select, aggregate, calculate, and perform other analytical tasks on data stored at Oracle data warehouse. It also enables an application to explore the metadata of a cube.
+
+Olap4j\footnote{http://www.olap4j.org} is another API for accessing multi-dimensional data. It is an  open source Java API compatible with many OLAP server (e.g. Mondrian, Palo and SAP BW) which supports MDX queries. Multidimensional Expressions (MDX) is a query language for OLAP. Olap4j enables also the browsing of metadata including the cubes, dimensions, hierarchies and members in an OLAP schema.
+
+There exist also other APIs for different programming languages and data stores offering similar functionality. For example the Data Brewery\footnote{http://databrewery.org/} offers a set of Python frameworks and tools for data processing and analysis which includes an API that covers the cubes logical model metadata and aggregation browsing functionality. Apache Lens\footnote{lens.apache.org} is a unified analytics platform that aims providing a single view of data across multiple data stores. Lens offers also an API to handle data cubes.
+
+All the above APIs handle multidimensional data, but they are based on traditional databases and data-warehouwse. None of them handles LOSD. 
+
+Regarding the output of an API, JSON is an already successful and simple format. Some JSON extension formats have been proposed to model statistical data and linked data. Specifically, JSON-stat is a simple lightweight JSON  format for statistical data and metadata exchange. While 
+JSON-LD is a lightweight Linked Data format. It a way to help JSON data interoperate at Web-scale. 
 
 Related work:
 \begin{itemize}
@@ -87,7 +104,6 @@ API functionality:
 \item GET cubeOfAggregationSet
 \end{itemize}
 
-\cite{Janssen:2012}
 
 possible example for slice/ observation-selection query:
 \begin{verbatim} 
