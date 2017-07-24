@@ -42,6 +42,13 @@ There exist also some REST APIs with similar functionality. The Data Brewery\foo
 
 All the above APIs handle data cubes that are stored at traditional databases or data-warehouse. However, none of them can handle data cubes  stored as linked data using the QB vocabulary.  
 
+<<<<<<< HEAD
+The JSON-QB API purpose is to help users retrieve information to support visualizations and other applications. It can be easily done as its implementation fills the gap of a generic software interaction with every type of LOSD. Moreover, it retains the benefits of Linked Data such as data representation and integration, but hides most of the complexity of that for the majority of users. Next, we present an overview of the solution that was designed.
+
+The architecture of the API is relatively simple as it is developed on the RDF Data Cube vocabulary and SPARQL using statistical data from the data cube structure. The implementation of JSON-API abolishes the need to implement different data access layers for each tool is created. In the traditional architecture data access layers had to be coded separately leading to additional costs. The JSON-API can be installed on top of any RDF repository and offers basic and advanced operations on RDF Data cubes while other kinds of database could be used, enabling flexibility and innovation.
+
+Linked data is a good approach for standards-based publication of statistics on the web, but RDF and SPARQL are unfamiliar to many users. There are obstacles to uptake of this technology because it is perceived to be complicated. The aim of the API is to support a style of interaction that is familiar to web developers - delivering data in JSON format and using familiar styles of API call. Through SPARQL queries, JSON-API has full access at data cubes returning the asked data in the re-used format of JSON. Users can use JSON as input to the API for -get requests and receive data as output still in JSON format.
+=======
 Regarding the output of the REST APIs, JSON is an already successful and simple format. Existing REST APIs use some case-specific JSON responses, however JSON extension formats have already been proposed to model data cubes and linked data. Specifically, JSON-LD\footnote{https://json-ld.org} offers a method for encoding linked data using JSON. While, JSON-stat\footnote{https://json-stat.org/} is a JSON format for modelling statistical data (i.e. data cubes), however the structure is too complicated when it comes to simple visualizations (e.g. maps). Moreover, it has some limitations e.g. does not support pagination of results. 
 
 Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for linked data cubes. The discussion occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit linked data cubes for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop at Manchester with participation of relevant developers. 
@@ -56,7 +63,11 @@ The architecture of the API is developed in JSON format offering benefits which 
 Moreover, using JSON for accessing RDF Stores is an easier way to build software applications. Developers need to know and use neither RDF Data Cube vocabulary nor expert programming skills at LOSD. They have full access at LOSD just using JSON, a much more common and understandable programming language. Through SPARQL queries, JSON-API has access at data cubes returning the asked data in the re-used format of JSON. By this way, all LOSD-related programming and its complexity is now hidden.
 
 As figure 1 shows, JSON-API helps developers create custom applications according to their needs. JSON language is commonly re-used by many libraries offering data representation and visualization. +++
+>>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
 
+There are already methods available for downloading entire data cubes but people often want just small parts.  Whole cubes are often too big to be well-suited to interactive applications, and if the data updates frequently, then it's important for people to be able to retrieve up-to-date extracts of the data, rather than keeping their own copies of full datasets up to date. JSON-QB API implementation allows developers through JSON to take exactly the data that want.
+ 
+In addition, we want to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. As well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints. By this way cost can be reduced and reliability of open services could be improved.
 
 \begin{figure}
   \includegraphics{images/overview.jpg}

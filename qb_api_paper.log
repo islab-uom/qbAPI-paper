@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.20)  24 JUL 2017 17:49
+=======
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  21 JUL 2017 18:38
 entering extended mode
 **qb_api_paper.tex
@@ -17,6 +20,7 @@ ishmax, welsh, loaded.
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\llncs.cls"
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.20)  21 JUL 2017 17:25
+>>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
 entering extended mode
 **./qb_api_paper.tex
 (qb_api_paper.tex
@@ -326,6 +330,10 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 <<<<<<< HEAD
  [2]
+<images/overview.jpg, id=14, 437.4744pt x 400.8576pt>
+=======
+<<<<<<< HEAD
+ [2]
 <images/overview.jpg, id=16, 437.4744pt x 400.8576pt>
 File: images/overview.jpg Graphic file (type jpg)
 
@@ -343,6 +351,7 @@ Overfull \hbox (183.12184pt too wide) in paragraph at lines 124--124
 =======
 
 <images/overview.jpg, id=10, 437.4744pt x 400.8576pt>
+>>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
 File: images/overview.jpg Graphic file (type jpg)
 
 <use images/overview.jpg>
@@ -353,13 +362,16 @@ Overfull \hbox (90.34978pt too wide) in paragraph at lines 52--53
 [][] 
  []
 
-[2] [3 <./images/overview.jpg>]
+
 Overfull \hbox (183.12184pt too wide) in paragraph at lines 108--108
 >>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
 []    \OT1/cmtt/m/n/10 "dimension:refPeriod": { "jqql:order-predicate": "ui:sor
 tPriority", "jqql:direction": "jqql:asc"}[] 
  []
 
+<<<<<<< HEAD
+[3] [4 <./images/overview.jpg>] (qb_api_paper.bbl) [5] (qb_api_paper.aux)
+=======
 <<<<<<< HEAD
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.bbl"
 [5]) [6]
@@ -375,6 +387,7 @@ Here is how much of TeX's memory you used:
  29i,9n,32p,866b,235s stack positions out of 5000i,500n,10000p,200000b,50000s
 =======
 [4] (qb_api_paper.bbl) [5] (qb_api_paper.aux)
+>>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -382,12 +395,16 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  3101 strings out of 493323
  43490 string characters out of 3139066
- 115685 words of memory out of 3000000
+ 116685 words of memory out of 3000000
  6625 multiletter control sequences out of 15000+200000
  6279 words of font info for 23 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
+<<<<<<< HEAD
+ 39i,5n,32p,868b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
+=======
  39i,5n,32p,868b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
 >>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
+>>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTe
@@ -405,7 +422,7 @@ PDF statistics:
 ts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb>
-Output written on qb_api_paper.pdf (5 pages, 193833 bytes).
+Output written on qb_api_paper.pdf (5 pages, 195101 bytes).
 PDF statistics:
  47 PDF objects out of 1000 (max. 8388607)
 >>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
