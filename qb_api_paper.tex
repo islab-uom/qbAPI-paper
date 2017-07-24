@@ -67,35 +67,82 @@ As figure 1 shows, JSON-API helps developers create custom applications accordin
 
 \section{Requirements and design criteria}\label{sec:reqs}
 
-\begin{itemize}
-\item need to know what datasets are available
-\item need to know about structure to subset the observations
-\item in order not to return everything, need to subset
-\item don't necessarily need a n-array/ tabular response - array of observations is sufficient. can always get back to the table
-\item Filtering
-\item Multilinguality
-\item Ordering \& paging
-\item merging, aggregations
-\item json-ld representation is sufficient for query and response format
-\item ++
-\end{itemize}
+This section presents the requirements and design criteria related to the Linked Open Statistical Data API.
 
-API functionality:
-\begin{itemize}
-\item GET dataset-metadata
-\item GET dimensions
-\item GET attributes
-\item GET measures
-\item GET dimension-values
-\item GET attribute-values
-\item GET dimension-levels
-\item GET slice
-\item GET table
-\item GET cubes
-\item GET aggregationSetcubes
-\item GET create-aggregations
-\item GET cubeOfAggregationSet
-\end{itemize}
+\subsection{Explore data cubes}
+
+The linked data web currently contains many published data cubes and their number still increases. Obviously there is a need to search for cubes based on some criteria. For example get cubes that measure unemployment, or get cubes that for Greece. The criteria can be even more complex e.g. get cubes about unemployment in Greece after 2010. This functionality will enable web developers create advanced exploring functionality among cubes that exist even at different RDF stores.
+
+This functionality can be extended to support not only user specified criteria, but also support the automatic search of cubes that could be processed together. For example, search for cubes that are compatible for statistical analysis, or for browsing. The compatibility criteria is still an open issue and is under discussions.
+
+\subsection{Explore data cube structure}
+GET dataset-metadata
+
+GET dimensions
+
+GET attributes
+
+GET measures
+
+GET dimension-values
+
+GET attribute-values
+
+GET dimension-levels
+
+mazi me to epomeno?
+
+
+\subsection{Slicing or filtering}
+There are already methods available for downloading entire data cubes but people often want just small parts.  Whole cubes are often too big to be well-suited to interactive applications, and if the data updates frequently,  then it's important for people to be able to retrieve up-to-date extracts of the data, rather than keeping their own copies of full datasets up to date
+
+Need to know about structure to subset the observations. In order not to return everything, need to subset
+
+Filtering
+
+don't necessarily need a n-array/ tabular response - array of observations is sufficient. can always get back to the table
+
+GET slice
+GET table
+
+
+\subsection{Data integration}
+
+Retain the benefits of Linked Data for behind the scenes data representation and integration, but hide most of the complexity of that for the majority of users
+
+Merging 
+
+json-ld representation is sufficient for query and response format
+
+\subsection{Data representation agnostic}
+we want to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable.  So the API has to be generic enough to be widely applicable.
+
+
+\subsection{Easy of use by web developers}
+purpose is to help users retrieve information to support visualisations and other applications.
+the well-defined structure of RDF Data Cube means that the API can be relatively simple
+linked data is a good approach for standards-based publication of statistics on the web, but RDF and SPARQL are unfamiliar to many users and there are obstacles to uptake of this technology because it is perceived to be complicated. our aim is to support a style of interaction that is familiar to web developers. Delivering data in JSON format and using familiar styles of API call 
+
+
+\subsection{Performance}
+It will be easier to support efficient caching of API responses than of arbitrary SPARQL queries
+
+Ordering \& paging
+
+
+\subsection{Extensibility}
+while our initial implementations are building on top of underlying RDF databases, other kinds of database could be used, enabling flexibility and innovation. 
+
+Multilinguality
+
+API vs language
+
+\subsection{Other}
+
+
+as well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints, so reducing cost and improving reliability of open online services
+
+aggregations
 
 
 possible example for slice/ observation-selection query:
