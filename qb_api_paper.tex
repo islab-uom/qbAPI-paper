@@ -18,31 +18,52 @@
 
 Recently, many governments, organisations and companies are opening up their data for others to reuse through \textit{Open Data} portals  \cite{Kalampokis:2011:IJWET}. These data can be exploited to create added value services, which can increase transparency, contribute to economic growth and provide social value to citizens \cite{Janssen:2012}.
 
-A major part of open data concerns statistics (e.g. economical and social indicators) \cite{Capadisli:2013}. These data are are often organised in a multidimensional way, where a measured fact is described based on a number of dimensions. In this case, statistical data are compared to data cubes. Thus, we onwards refer to statistical multidimensional data as \textit{data cubes} or just \textit{cubes}.
+A major part of open data concerns statistics (e.g. economical and social indicators) \cite{Capadisli:2013}. These data are often organised in a multidimensional way, where a measured fact is described based on a number of dimensions. In this case, statistical data are compared to data cubes. Thus, we onwards refer to statistical multidimensional data as \textit{data cubes} or just \textit{cubes}.
 
-Linked data has been introduced as a promising paradigm for opening up data because it facilitates data integration on the Web \cite{Bizer:2009}. Concerning statistical data, the RDF data cube (QB) vocabulary enables modelling data cubes as linked data \cite{Cyganiak:2014:W3C}. In this way it facilitates their integration. Data provided using the QB vocabulary can be accessed using the existing machinery of Linked Data. However, skills and tooling for use of Linked Data (e.g. RDF, SPARQL) are less widespread than some other web technologies (e.g. REST, JSON). For example, there are many visualization libraries that consume data in JSON format (e.g D3.js, charts.js), while there are just a few that consume RDF. That's one of the reasons that there are not so many application for linked open statistical data [REF???].
+Linked data has been introduced as a promising paradigm for opening up data because it facilitates data integration on the Web \cite{Bizer:2009}. Concerning statistical data, the RDF data cube (QB) vocabulary enables modelling data cubes as linked data \cite{Cyganiak:2014:W3C}. In this way it facilitates their integration. Data provided using the QB vocabulary can be accessed using the existing machinery of Linked Data. However, skills and tooling for use of linked data (e.g. RDF, SPARQL) are less widespread than some other web technologies (e.g. JSON, REST). For example, there are many visualization libraries that consume data in JSON format (e.g D3.js, charts.js), while there are just a few that consume RDF and their functionality is limited. That's one of the reasons that there are not many application for linked data cubes [REF???].
 
-Moreover, many portals that use the QB vocabulary often adopt different publishing practices \cite{KalampokisChallenges}, thus hampering their interoperability. As a result it is not easy to create generic software tools that operate across linked open statistical datasets. Usually, case specific software are created which assume that linked statistical data are published in a specific way. 
+Moreover, many portals that use the QB vocabulary often adopt different publishing practices \cite{KalampokisChallenges}, thus hampering their interoperability. As a result it is not easy to create generic software tools that operate across linked data cubes. Usually, case specific software are created which assume that linked data cubes are published only in a specific form. 
 
-In this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input and output) with Linked Open Statistical Data in a way that facilitated the development of generic software. In this way we keep the advantages of linked data (e.g. data integration) but hide all the complexity by supporting developers to use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of Linked Data technologies. Moreover, the API offers a uniform way to access the underlying data hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
+In this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input and output) with linked data cubes (aka Linked Open Statistical Data) in a way that facilitates the development of generic software. The API aims to exploit the advantages of linked data (e.g. easy data integration) but hide all the complexity. Specifically, it supports developers use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of linked data technologies. Moreover, the API offers a uniform way to access the underlying data by hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
+
+The rest of the paper is organized as follows ... +++
 
 \section{Methodology}\label{sec:methodology}
 
-Related work:
+In order to achieve the objectives of the paper we adopt the following methodology:
 \begin{itemize}
-\item  OLAP APIs – interaction with multidimensional data (input): Oracle OLAP API [1], Olap4j [2], ++
-\item Standardization of outcome: Json-stat, Json-ld, ++
+\item Study the related work. We focus on: i) APIs that facilitate the interaction with data cubes and ii) data formats that can be exploited to represent the result (i.e. output) of the API. 
+\item Collect user requirements from developers that currently create applications for linked data cubes. 
 \end{itemize}
 
-Discussion with developers: Workshop, +++
+Currently, there exist many APIs that facilitate the interaction with data cubes. These APIs offer basic functionality that covers the cube's logical model, but they also support more advanced OLAP operations including aggregations, slicing, roll-up/drill-down etc. For example, the Oracle OLAP Java API \cite{ORACLEAPI} allows users to select, explore, aggregate, calculate, and perform other analytical tasks on data stored at Oracle data warehouse. Olap4j\footnote{http://www.olap4j.org} is another Java API for accessing data cubes, which is compatible with many OLAP servers (e.g. Mondrian, Palo and SAP Business Warehouse). It enables the browsing of meta-data including the cubes, dimensions, hierarchies and members in an schema. Olap4j also supports Multidimensional Expressions (MDX) that is the query language for OLAP.
 
-\section{Solution overview}\label{sec:overview}
+There exist also some REST APIs with similar functionality. The Data Brewery\footnote{http://databrewery.org/} offers a set of Python tools, including a REST API, for processing and analysing data cubes stored at a relational data base (e.g. MySQL, PostgreSQL). Apache Lens\footnote{lens.apache.org} is another analytics platform that integrates Hadoop with traditional data warehouses (e.g. Apache Hive, Amazon Redshift). Lens provides a REST API to handle data cubes, that also supports ``OLAP Cube QL" - a high level SQL like language to query data organized as data cubes.
 
+All the above APIs handle data cubes that are stored at traditional databases or data-warehouse. However, none of them can handle data cubes  stored as linked data using the QB vocabulary.  
+
+<<<<<<< HEAD
 The JSON-QB API purpose is to help users retrieve information to support visualizations and other applications. It can be easily done as its implementation fills the gap of a generic software interaction with every type of LOSD. Moreover, it retains the benefits of Linked Data such as data representation and integration, but hides most of the complexity of that for the majority of users. Next, we present an overview of the solution that was designed.
 
 The architecture of the API is relatively simple as it is developed on the RDF Data Cube vocabulary and SPARQL using statistical data from the data cube structure. The implementation of JSON-API abolishes the need to implement different data access layers for each tool is created. In the traditional architecture data access layers had to be coded separately leading to additional costs. The JSON-API can be installed on top of any RDF repository and offers basic and advanced operations on RDF Data cubes while other kinds of database could be used, enabling flexibility and innovation.
 
 Linked data is a good approach for standards-based publication of statistics on the web, but RDF and SPARQL are unfamiliar to many users. There are obstacles to uptake of this technology because it is perceived to be complicated. The aim of the API is to support a style of interaction that is familiar to web developers - delivering data in JSON format and using familiar styles of API call. Through SPARQL queries, JSON-API has full access at data cubes returning the asked data in the re-used format of JSON. Users can use JSON as input to the API for -get requests and receive data as output still in JSON format.
+=======
+Regarding the output of the REST APIs, JSON is an already successful and simple format. Existing REST APIs use some case-specific JSON responses, however JSON extension formats have already been proposed to model data cubes and linked data. Specifically, JSON-LD\footnote{https://json-ld.org} offers a method for encoding linked data using JSON. While, JSON-stat\footnote{https://json-stat.org/} is a JSON format for modelling statistical data (i.e. data cubes), however the structure is too complicated when it comes to simple visualizations (e.g. maps). Moreover, it has some limitations e.g. does not support pagination of results. 
+
+Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for linked data cubes. The discussion occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit linked data cubes for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop at Manchester with participation of relevant developers. 
+
+
+\section{Solution overview}\label{sec:overview}
+
+A large part of statistical data is isolated, meaning that exists in different portals as different datasets. The technology of Linked data and RDF Data Cube vocabulary solves the problem of distributed data sources through their integration, creating interoperable linked statistical data portals. These portals are used for the design and creation of a Linked Open Statistical Data API.
+ 
+The architecture of the API is developed in JSON format offering benefits which are not exist until now. The implementation of JSON-API abolishes the need to implement different data access layers for each tool is created. In the traditional architecture data access layers had to be coded separately leading to additional costs. The JSON-API can be installed on top of any RDF repository and offers basic and advanced operations on RDF Data cubes.
+ 
+Moreover, using JSON for accessing RDF Stores is an easier way to build software applications. Developers need to know and use neither RDF Data Cube vocabulary nor expert programming skills at LOSD. They have full access at LOSD just using JSON, a much more common and understandable programming language. Through SPARQL queries, JSON-API has access at data cubes returning the asked data in the re-used format of JSON. By this way, all LOSD-related programming and its complexity is now hidden.
+
+As figure 1 shows, JSON-API helps developers create custom applications according to their needs. JSON language is commonly re-used by many libraries offering data representation and visualization. +++
+>>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
 
 There are already methods available for downloading entire data cubes but people often want just small parts.  Whole cubes are often too big to be well-suited to interactive applications, and if the data updates frequently, then it's important for people to be able to retrieve up-to-date extracts of the data, rather than keeping their own copies of full datasets up to date. JSON-QB API implementation allows developers through JSON to take exactly the data that want.
  
@@ -87,7 +108,6 @@ API functionality:
 \item GET cubeOfAggregationSet
 \end{itemize}
 
-\cite{Janssen:2012}
 
 possible example for slice/ observation-selection query:
 \begin{verbatim} 
