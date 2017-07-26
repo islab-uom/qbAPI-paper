@@ -50,13 +50,11 @@ Finally, to collect the user requirements, we established a continuous discussio
 
 \section{Solution overview}\label{sec:overview}
 
-The JSON-QB API purpose is to help users retrieve information to support visualizations and other applications. It can be easily done as its implementation fills the gap of a generic software interaction with every type of LOSD. Moreover, it retains the benefits of Linked Data such as data representation and integration, but hides most of the complexity of that for the majority of users. Next, we present an overview of the solution that was designed.
+Linked data is a good approach for standards-based publication of statistics on the web, but RDF and SPARQL are unfamiliar to web developers and  are perceived to be complicated. The aim of the Linked Open Statistical Data API is to support the development of visualizations and other applications through a style of interaction that is familiar to web developers i.e. delivering data in JSON format and using familiar styles of API call. Moreover, the API retains the benefits of linked data such as data representation and integration, but hides most of the complexity.
 
-The architecture of the API is relatively simple as it is developed on the RDF Data Cube vocabulary and SPARQL using statistical data from the data cube structure. The implementation of JSON-API abolishes the need to implement different data access layers for each tool is created. In the traditional architecture data access layers had to be coded separately leading to additional costs. The JSON-API can be installed on top of any RDF repository and offers basic and advanced operations on RDF Data cubes while other kinds of database could be used, enabling flexibility and innovation.
+The architecture of the API is relatively simple, it is developed as a middle-ware between the Linked Open Statistical Data (stored at RDF repositories) and the applications that consume the data. In the traditional architecture, data access layers had to be coded separately leading to additional costs. However, the implementation of the API abolishes the need to implement different data access layers for each application. 
 
-Linked data is a good approach for standards-based publication of statistics on the web, but RDF and SPARQL are unfamiliar to many users. There are obstacles to uptake of this technology because it is perceived to be complicated. The aim of the API is to support a style of interaction that is familiar to web developers - delivering data in JSON format and using familiar styles of API call. Through SPARQL queries, JSON-API has full access at data cubes returning the asked data in the re-used format of JSON. Users can use JSON as input to the API for -get requests and receive data as output still in JSON format.
-
-In addition, we want to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. As well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints. By this way cost can be reduced and reliability of open services could be improved.
+The API offers a uniform way to handle data cubes. It receives the API calls and translates them to SPARQL queries that are executed at Linked Open Statistical Data. Then, the API gets the result, expressed using the RDF Data cube vocabulary, and transforms it to a JSON representation that can easily be consumed by applications.
 
 \begin{figure}[h!]
   \includegraphics[width=110mm]{images/overview.jpg}
@@ -69,7 +67,7 @@ In addition, we want to standardise the API specification and try to get broad s
 
 This section presents the requirements and design criteria related to the Linked Open Statistical Data API.
 
-\subsection{Search data cubes}
+\subsection{Search data cubes}\label{sec:search}
 
 The linked data web currently contains many published data cubes and their number still increases. Thus, applications need to search for cubes based on some criteria. For example, get cubes that measure unemployment, or get cubes for Greece. The search can be even more complex e.g. get cubes about unemployment in Greece after 2010. To fully exploit the cube searching functionality, the API ideally should search over the linked data web and not be limited to a single RDF store.
 
@@ -90,7 +88,7 @@ Once a cube has been identified (e.g. through the search functionality) the proc
 
 Regarding the last three elements, the QB vocabulary does not offer a way to retrieve the values / levels directly from the structure. Thus the API should iterate over the cube observations, which is a time consuming task.
 
-\subsection{Slicing or filtering}
+\subsection{Slicing and filtering}\label{sec:slice}
 
 There are already methods available for downloading entire data cubes but people often want just small parts.  Whole cubes are often too big to be well-suited to interactive applications, and if the data updates frequently,  then it's important for people to be able to retrieve up-to-date extracts of the data, rather than keeping their own copies of full datasets up to date. The API should allow applications to take exactly the data they want by defining constrains (i.e. filters) to the dimension values. The API should support many filtering options including:
 \begin{itemize}
@@ -99,7 +97,6 @@ There are already methods available for downloading entire data cubes but people
 \item Ranges e.g refPeriod=[2010 ... 2015]
 \item Greater/smaller than e.g. refPeriod$>$2010
 \item Hierarchical data filtering e.g. refArea=``all council areas in Scotland"
-\item +++
 \end{itemize}
 
 In many cases, applications do not need all the requested data at once, because they process them at bunches. For example, a cube browser shows a part of the data allowing the user to navigate to the previous/next page of data. Thus, the API should support paging and ordering of the results. The ordering of the results can be in ascending or descending order based on one or more dimensions. However, in some cases lexicographical ordering is not appropriate (e.g. for the days of the week), thus other types of ordering should be applied.
@@ -190,13 +187,16 @@ The volume of data published as linked data cubes is big, reaching the magnitude
 
 The API can improve performance of demanding SPARQL queries through efficient caching of the responses. The caching policy (e.g. Least Recently Used, Least Frequently Used) plays an important role at the performance improvement. Note that caching of API responses is much easier that caching of arbitrary SPARQL queries. 
 
-Another task that can improve the performance of the API is the pre-computation of aggregations: i) across a dimension of the cube e.g. compute the SUM of the sales over time and thus ignore the time dimension of the cube and ii) across a hierarchy e.g. if a cube contains the election results at municipality level, then aggregations can be computed at region and at country level. The pre-computation of the aggregations facilitates the execution of queries, because there in not need to compute the aggregations when requested. 
+Another task that can improve the performance of the API is the pre-computation of aggregations: i) across a dimension of the cube e.g. compute the SUM of the sales over time and thus ignore the time dimension of the cube and ii) across a hierarchy e.g. if a cube contains the election results at municipality level, then aggregations can be computed at region and at country level. The pre-computation of the aggregations facilitates the execution of queries, because there in not need to compute the aggregations on-the-fly when requested. 
 
 
 \subsection{Extensibility}
-while our initial implementations are building on top of underlying RDF databases, other kinds of database could be used, enabling flexibility and innovation. 
 
-other functionality?
+Finally, a requirement of the API is to be extensible, thus take future growth into consideration minimizing the effort required for the extension. Extensions can be implemented through the :
+\begin{itemize}
+\item addition of new functionality e.g. while the initial aim is to build an API on top of RDF databases, other kinds of database could be used, enabling flexibility and innovation
+\item modification of existing functionality e.g. support modified search (see section \ref{sec:search}) of filtering options (see section \ref{sec:slice}).
+\end{itemize} 
 
 
 \section{Implementation}\label{sec:impl}
