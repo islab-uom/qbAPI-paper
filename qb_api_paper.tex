@@ -77,9 +77,9 @@ The search functionality can also be extended to support not only user specific 
 
 \subsection{Explore data cube structure}
 
-Once a cube has been identified (e.g. through the search functionality) the processing application (e.g. cube browser) needs to initialize the user interface or the analysis with information related to the cube structure. For example, populate drop-down menus with the cube dimensions and measures. The QB vocabulary clearly identifies the main elements of the structure:
+Once a cube has been identified (e.g. through the search functionality) the processing application (e.g. cube browser) needs to initialize the user interface or the analysis with information related to the cube structure. For example, populate drop-down menus with the cube dimensions and measures. The QB vocabulary clearly identifies the main elements of the structure that should be accessed through the API:
 \begin{itemize}
-\item Dataset meta-data. They include information like the label, description, date issued, publisher and license.
+\item Dataset meta-data. They include information like the label, description, issue date, publisher and license.
 \item Dimensions. They include all the dimension properties of the cube (e.g. reference area, reference period).
 \item Measures. They include all the measure properties of the cube (e.g. unemployment, poverty)
 \item Attributes. They include all the attribute properties of the cube (e.g. unit of measure)
@@ -88,7 +88,7 @@ Once a cube has been identified (e.g. through the search functionality) the proc
 \item Attribute values. They include all the values of an attribute (e.g. euro, dollar) that appear at the cube. 
 \end{itemize} 
 
-Regarding the last three elements, the QB vocabulary does not offer a way to retrieve the values / levels directly from the structure, so the API should iterate over the cube observations that is a time consuming task.
+Regarding the last three elements, the QB vocabulary does not offer a way to retrieve the values / levels directly from the structure. Thus the API should iterate over the cube observations, which is a time consuming task.
 
 \subsection{Slicing or filtering}
 
@@ -102,17 +102,22 @@ There are already methods available for downloading entire data cubes but people
 \item +++
 \end{itemize}
 
-In many cases, applications do not need all the requested data at once, because they process them at bunches. For example, a cube browser shows a part of the data allowing the user to navigate to the previous/next page of data. Thus, the API should support paging and ordering of the results. The ordering of the results can be in ascending or descending order based on one or more dimensions. In some cases, lexicographical ordering is not appropriate (e.g. for the days of the week), thus other types of ordering should be applied.
+In many cases, applications do not need all the requested data at once, because they process them at bunches. For example, a cube browser shows a part of the data allowing the user to navigate to the previous/next page of data. Thus, the API should support paging and ordering of the results. The ordering of the results can be in ascending or descending order based on one or more dimensions. However, in some cases lexicographical ordering is not appropriate (e.g. for the days of the week), thus other types of ordering should be applied.
 
 \subsection{Easy of use}
 
 Linked data offer many benefits to web developers, including the easy integration on the web. However, linked data technologies (i.e. RDF, SPARQL) are unfamiliar to many developers, thus creating many obstacles at their adoption. The purposes of the API is to exploit the advantages of linked data through a style of interaction that is familiar to web developers, thus helping them create data visualisations and applications.
 
-The easy of use of an API is related both to the input of the API (API calls) and the out put. Regarding the input of the API there are mainly two design options: i) use a separate parameter for each required input and ii) model all the required input as a JSON object. The first option is post popular at existing APIs, while the second is more flexible and expressive. For example, it enables the expression of relations other than equality (e.g. greater than).
+The easy of use of an API is related both to the input of the API (API calls) and the out put. Regarding the input of the API there are mainly two design options: i) use a separate parameter for each required input and ii) model all the required input as a JSON object. The first option is post popular at existing APIs, while the second is more flexible and expressive. For example, it enables the expression of relations other than equality e.g. greater than (see Table \ref{tbl:apiinput}).
 
-
-\begin{tabular}{|c|c| }\hline
-\textbf{Separate parameters} & \textbf{Input as JSON}\\ \hline
+\begin{table}
+\caption{Input of API: separate parameters vs JSON object}
+\begin{tabular}{ll}
+\hline\noalign{\smallskip}
+\textbf{Separate parameters} & \textbf{Input as JSON}\\
+\noalign{\smallskip}
+\hline
+\noalign{\smallskip}
 \begin{minipage}[t]{2.2in}
  \begin{verbatim} 
 GET /slice?dataset=home-care&
@@ -126,11 +131,12 @@ GET /slice?dataset=home-care&
  "filter": {
    "gender": "male"
 }}
+
 \end{verbatim}
-\end{minipage}\\\hline
+\end{minipage}\\
 \begin{minipage}[t]{2.2in}
  \begin{verbatim} 
--                    
+Cannot be expressed                    
 \end{verbatim}
 \end{minipage}
 &
@@ -141,66 +147,63 @@ GET /slice?dataset=home-care&
    "gender": "male"
    "age": { "greater-than": 50}
 }}
-\end{verbatim}
-\end{minipage}\\\hline
-\end{tabular}
 
-Regarding the output of the API, JSON is a popular, easy to use format. Usually, applications and visualizations do not require an n-array/ tabular response; an array of observations is sufficient. In case that a tabular response is required, then it can easily be constructed from the observations. An excerpt of a JSON code that represents an array of observations is presented below.
+\end{verbatim}
+\end{minipage}\\
+\hline
+\end{tabular}
+\label{tbl:apiinput}
+\end{table}
+
+
+Regarding the output of the API, JSON is a popular, easy to use format. Usually, applications and visualizations do not require an n-array/ tabular response (e.g. JSON-stat); an array of observations is sufficient and more straightforward. In case that a tabular response is required, then it can easily be constructed from the observations. An example of a JSON code that could represents an array of observations is presented below.
 
 \begin{verbatim} 
 { "observations": [ 
-    {"Average Cost": "1182", 
-     "Date": "1-1-2013", 
-     "Day": "Tuesday", 
-     "Number of crashes": "5",
-     "Time": "No available time",
-     "Total Cost": "5908"}, 
-    {"Average Cost": "400",
-     "Date": "1-1-2013",
-     "Day": "Tuesday",
-     "Number of crashes": "1",
-     "Time": "24:00",
-     "Total Cost": "400"}
+    {"gender"       : "male", 
+     "age"          : "55-65", 
+     "refPeriod"    : "2016",
+     "refArea"      : "Scotland",
+     "unemployment" : "4.3",
+     "unit"         : "percent"}, 
+    {"gender"       : "female", 
+     "age"          : "55-65", 
+     "refPeriod"    : "2016",
+     "refArea"      : "Scotland",
+     "unemployment" : "4.7",
+     "unit"         : "percent"},
+     ...
 ]}
 \end{verbatim}
 
 Finally, JSON-LD representation can be used both at the input and output of the API format in order to represent linked data.
 
-\subsection{Consistency}
+\subsection{Uniform data access}
 
-Currently make linked data cubes have been published, however many of them adopt different publishing practices. The API should work on top of any of these data offering a uniform way to the data and hiding any data discrepancies. 
+Currently many linked data cubes have been published through official data portals, however a lot of them adopt different publishing practices. As a result, only case specific applications can be created that assume data published in a specific way. The API should work on top of any of these data, offering uniform access to the data and hide any discrepancies. Obviously, this will require different API implementations to comply with the different publishing practices. However, using the API as the main way to deliver data, will reduce the need for data publishers to maintain public SPARQL endpoints.
 
-
-we want to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. So the API has to be generic enough to be widely applicable.
-
-Application profile???
+Ideally, the standardization of the API specification will also lead to the formulation of an application profile for the QB vocabulary. The profile will include best practices that can be used by data publishers to provide data in a compatible way, facilitating in this way the development of generic linked data cube applications.
 
 \subsection{Performance}
-It will be easier to support efficient caching of API responses than of arbitrary SPARQL queries
+
+The volume of data published as linked data cubes is big, reaching the magnitude of million triples per cube. Thus, SPARQL queries that iterate over all the observations tend to be slow. For example, a query to get all the dimension values that appear at a cube needs to iterate over all the observations. As a result, applications that use such queries seem to be non-responsive. 
+
+The API can improve performance of demanding SPARQL queries through efficient caching of the responses. The caching policy (e.g. Least Recently Used, Least Frequently Used) plays an important role at the performance improvement. Note that caching of API responses is much easier that caching of arbitrary SPARQL queries. 
+
+Another task that can improve the performance of the API is the pre-computation of aggregations: i) across a dimension of the cube e.g. compute the SUM of the sales over time and thus ignore the time dimension of the cube and ii) across a hierarchy e.g. if a cube contains the election results at municipality level, then aggregations can be computed at region and at country level. The pre-computation of the aggregations facilitates the execution of queries, because there in not need to compute the aggregations when requested. 
 
 
 \subsection{Extensibility}
 while our initial implementations are building on top of underlying RDF databases, other kinds of database could be used, enabling flexibility and innovation. 
 
-Multilinguality
+other functionality?
 
-
-\subsection{Other}
-
-
-as well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints, so reducing cost and improving reliability of open online services
-
-aggregations
 
 \section{Implementation}\label{sec:impl}
 
 \section{Conclusion}\label{sec:conclusion}
 
 
-%\begin{acknowledgements}
-%If you'd like to thank anyone, place your comments here
-%and remove the percent signs.
-%\end{acknowledgements}
 
 \bibliographystyle{splncs03}
 
