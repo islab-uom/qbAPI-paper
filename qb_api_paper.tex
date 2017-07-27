@@ -1,6 +1,8 @@
 \documentclass{llncs}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{multirow}
+\usepackage{tabularx}
 
 \begin{document}
 
@@ -47,6 +49,11 @@ case-specific JSON responses, however JSON extension formats have already been p
 
 Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for linked data cubes. The discussion mainly occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit linked data cubes for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop at Manchester with participation of relevant developers. 
 
+\begin{figure}[h!]
+  \includegraphics[width=110mm]{images/overview.jpg}
+\caption{Solution overview}
+\label{fig:overview}
+\end{figure}
 
 \section{Solution overview}\label{sec:overview}
 
@@ -56,16 +63,31 @@ The architecture of the API is relatively simple, it is developed as a middle-wa
 
 The API offers a uniform way to handle data cubes. It receives the API calls and translates them to SPARQL queries that are executed at Linked Open Statistical Data. Then, the API gets the result, expressed using the RDF Data cube vocabulary, and transforms it to a JSON representation that can easily be consumed by applications.
 
-\begin{figure}[h!]
-  \includegraphics[width=110mm]{images/overview.jpg}
-\caption{Solution overview}
-\label{fig:overview}
-\end{figure}
-
 
 \section{Requirements and design criteria}\label{sec:reqs}
 
-This section presents the requirements and design criteria related to the Linked Open Statistical Data API.
+This section presents the functional and non-functional requirements and design criteria related to the Linked Open Statistical Data API.
+A summary of the requirements is presented at table \ref{tbl:req}.
+
+\begin{table}
+\caption{Summary of API requirements}
+\begin{tabular}{p{2cm}p{4cm}p{5.9cm}}
+\hline\noalign{\smallskip}
+\textbf{Type} & \textbf{Name} & \textbf{Description}\\
+\noalign{\smallskip}
+\hline
+\noalign{\smallskip}
+\multirow{3}{*}{functional} & Search data cubes & Search for data cubes at linked statistical data portals based on specified criteria\\\noalign{\smallskip}
+ & Explore data cube structure & Having a cube at hand, get information about its structure (e.g. dimensions, measures, attributes)\\\noalign{\smallskip}
+ & Slicing and filtering & Get a sub-set (slice) of cube observations based on user-defined criteria\\\noalign{\smallskip}\hline
+\multirow{4}{*}{non-functional} & Easy of use & Provide a style of interaction that is familiar to web developers\\\noalign{\smallskip}
+ & Uniform data access & Hide any discrepancies of published data cubes\\\noalign{\smallskip}
+ & High performance & Provide responses fast even for demanding requests\\\noalign{\smallskip}
+ & Extensibility & Enable the addition of new or the modification of existing functionality\\\noalign{\smallskip}
+\hline
+\end{tabular}
+\label{tbl:req}
+\end{table}
 
 \subsection{Search data cubes}\label{sec:search}
 
@@ -128,9 +150,8 @@ GET /slice?dataset=home-care&
  "filter": {
    "gender": "male"
 }}
-
 \end{verbatim}
-\end{minipage}\\
+\end{minipage}\\\noalign{\smallskip}
 \begin{minipage}[t]{2.2in}
  \begin{verbatim} 
 Cannot be expressed                    
@@ -144,9 +165,8 @@ Cannot be expressed
    "gender": "male"
    "age": { "greater-than": 50}
 }}
-
 \end{verbatim}
-\end{minipage}\\
+\end{minipage}\\\noalign{\smallskip}
 \hline
 \end{tabular}
 \label{tbl:apiinput}
@@ -181,7 +201,7 @@ Currently many linked data cubes have been published through official data porta
 
 Ideally, the standardization of the API specification will also lead to the formulation of an application profile for the QB vocabulary. The profile will include best practices that can be used by data publishers to provide data in a compatible way, facilitating in this way the development of generic linked data cube applications.
 
-\subsection{Performance}
+\subsection{High performance}
 
 The volume of data published as linked data cubes is big, reaching the magnitude of million triples per cube. Thus, SPARQL queries that iterate over all the observations tend to be slow. For example, a query to get all the dimension values that appear at a cube needs to iterate over all the observations. As a result, applications that use such queries seem to be non-responsive. 
 
@@ -200,6 +220,98 @@ Finally, a requirement of the API is to be extensible, thus take future growth i
 
 
 \section{Implementation}\label{sec:impl}
+
+
+The API implementation\footnote{https://github.com/OpenGovIntelligence/json-qb-api-implementation} aims to provide an easy to use API for web developers that use statistical data stored in the form of RDF Data cubes. It  can be installed on top of any RDF repository and offer basic and advanced operations on RDF Data cubes assuming that: i) they are stored using the RDF Data Cube Vocabulary, ii) they follow a specific application profile (common practices) and iii) are accessible through a SPARQL endpoint.  All the functionality is offered through simple REST calls. The API translates each call to a SPARQL query that is executed at the linked data cubes. The returned results are always transformed  in JSON format 
+
+The implementation of the API uses the following technologies:
+\begin{itemize}
+\item Jersey  framework for the implementation of the RESTful services. Jersey is an implementation of the JAX-RS  Reference Implementation. 
+\item SPARQL  for querying the RDF repositories. 
+\item Rdf4j  Java framework for processing RDF data 
+\item Gson  Java library to serialize Java Objects into their JSON representation  
+\end{itemize}
+
+
+
+\begin{table}
+\caption{Example API calls}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Dimensions}}\\
+
+\hline
+API call &
+\begin{minipage}[t]{4.5in}
+ \begin{verbatim} 
+GET /dimensions?dataset=http://example.com/cube/unemployment         
+\end{verbatim}
+\end{minipage}\\\hline
+
+SPARQL query  &
+\begin{minipage}[t]{4.5in}
+ \begin{verbatim} 
+PREFIX qb: http://purl.org/linked-data/cube#
+PREFIX rdfs: http://www.w3.org/2000/01/rdf-schema#
+PREFIX ex: http://example.com/cube/
+select distinct ?dim ?label where {
+    ex:unemployment qb:structure ?dsd.
+    ?dsd qb:component  ?cs.
+    ?cs qb:dimension ?dim.
+    ?dim rdfs:label ?label.} 
+\end{verbatim}
+\end{minipage}\\ \hline
+
+JSON result &
+\begin{minipage}[t]{4.5in}
+ \begin{verbatim} 
+{"dimensions":[
+  {"@id":  "http://example.com/dimension/refArea",
+   "label":"Reference area"},
+  {"@id":  "http://example.com/dimension/refPeriod",
+   "label":"Reference period"},
+   ....
+ ]
+}  
+\end{verbatim}
+\end{minipage}\\\hline
+
+
+
+\multicolumn{2}{|c|}{\textbf{Slice}}\\
+
+\hline
+API call &
+\begin{minipage}[t]{4.5in}
+ \begin{verbatim} 
+GET /slice
+\end{verbatim}
+\end{minipage}\\\hline
+
+SPARQL query  &
+\begin{minipage}[t]{4.5in}
+ \begin{verbatim} 
+XXX
+\end{verbatim}
+\end{minipage}\\ \hline
+
+JSON result &
+\begin{minipage}[t]{4.5in}
+ \begin{verbatim} 
+YYY 
+\end{verbatim}
+\end{minipage}\\\hline
+
+
+\end{tabular}
+\label{tbl:apiexamplecall}
+\end{table}
+
+
+
+
+++ easy app creation++ image cube visualiser!
+
 
 \section{Conclusion}\label{sec:conclusion}
 
