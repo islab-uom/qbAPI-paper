@@ -1,43 +1,16 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.20)  24 JUL 2017 17:49
-=======
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  21 JUL 2017 18:38
-entering extended mode
-**qb_api_paper.tex
-("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.tex"
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\llncs.cls"
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.20)  21 JUL 2017 17:25
->>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.20)  27 JUL 2017 18:21
 entering extended mode
 **./qb_api_paper.tex
 (qb_api_paper.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
 (llncs.cls
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
 Document Class: llncs 2015/06/24 v2.20 
  LaTeX document class for Lecture Notes in Computer Science
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
-<<<<<<< HEAD
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
-=======
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
 )
 \c@part=\count79
 \c@section=\count80
@@ -160,24 +133,24 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count116
 ))
@@ -199,39 +172,16 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \lst@maxwidth=\dimen130
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
-<<<<<<< HEAD
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-=======
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
 \c@lstnumber=\count123
 \lst@skipnumbers=\count124
 \lst@framebox=\box55
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
-File: listings.cfg 2007/02/22 1.4 listings configuration
+File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package: listings 2007/02/22 1.4 (Carsten Heinz)
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-<<<<<<< HEAD
-("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen130
-=======
 (qb_api_paper.aux)
 \openout1 = `qb_api_paper.aux'.
 
@@ -251,18 +201,11 @@ LaTeX Font Info:    ... okay on input line 5.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
 \scratchdimen=\dimen131
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
 \scratchbox=\box56
 \nofMPsegments=\count126
 \nofMParguments=\count127
 \everyMPshowfont=\toks20
 \MPscratchCnt=\count128
-<<<<<<< HEAD
-\MPscratchDim=\dimen131
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks21
-=======
 \MPscratchDim=\dimen132
 \MPnumerator=\count129
 \makeMPintoPDFobject=\count130
@@ -311,121 +254,74 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
 )
 \c@lstlisting=\count131
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 12.
+(Font)              <7> on input line 11.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 12.
+(Font)              <5> on input line 11.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 40.
+(Font)              <9> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 40.
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-<<<<<<< HEAD
- [2]
-<images/overview.jpg, id=14, 437.4744pt x 400.8576pt>
-=======
-<<<<<<< HEAD
- [2]
-<images/overview.jpg, id=16, 437.4744pt x 400.8576pt>
+(Font)              <6> on input line 39.
+ [2] [3]
+Overfull \hbox (101.68298pt too wide) in paragraph at lines 65--67
+\OT1/cmr/m/n/10 fer-ing data rep-re-sen-ta-tion and vi-su-al-iza-tion. +++ >>>>
+>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd 
+ []
+
+<images/overview1.jpg, id=19, 317.988pt x 262.0992pt>
+File: images/overview1.jpg Graphic file (type jpg)
+
+<use images/overview1.jpg>
+Package pdftex.def Info: images/overview1.jpg used on input line 73.
+(pdftex.def)             Requested size: 317.98721pt x 262.09854pt.
+
+<images/overview.jpg, id=20, 437.4744pt x 400.8576pt>
 File: images/overview.jpg Graphic file (type jpg)
 
 <use images/overview.jpg>
-Package pdftex.def Info: images/overview.jpg used on input line 69.
+Package pdftex.def Info: images/overview.jpg used on input line 79.
 (pdftex.def)             Requested size: 437.47331pt x 400.85661pt.
 
-Overfull \hbox (90.34978pt too wide) in paragraph at lines 69--70
+Overfull \hbox (90.34978pt too wide) in paragraph at lines 79--80
 [][] 
  []
 
-[3] [4 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overv
-iew.jpg>]
-Overfull \hbox (183.12184pt too wide) in paragraph at lines 124--124
-=======
-
-<images/overview.jpg, id=10, 437.4744pt x 400.8576pt>
->>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
-File: images/overview.jpg Graphic file (type jpg)
-
-<use images/overview.jpg>
-Package pdftex.def Info: images/overview.jpg used on input line 52.
-(pdftex.def)             Requested size: 437.47331pt x 400.85661pt.
-
-Overfull \hbox (90.34978pt too wide) in paragraph at lines 52--53
-[][] 
- []
-
-
-Overfull \hbox (183.12184pt too wide) in paragraph at lines 108--108
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
+[4] [5 <./images/overview1.jpg>] [6 <./images/overview.jpg>]
+Overfull \hbox (183.12184pt too wide) in paragraph at lines 134--134
 []    \OT1/cmtt/m/n/10 "dimension:refPeriod": { "jqql:order-predicate": "ui:sor
 tPriority", "jqql:direction": "jqql:asc"}[] 
  []
 
-<<<<<<< HEAD
-[3] [4 <./images/overview.jpg>] (qb_api_paper.bbl) [5] (qb_api_paper.aux)
-=======
-<<<<<<< HEAD
-("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.bbl"
-[5]) [6]
-("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
- ) 
-Here is how much of TeX's memory you used:
- 2733 strings out of 493921
- 37723 string characters out of 3147285
- 100931 words of memory out of 3000000
- 6037 multiletter control sequences out of 15000+200000
- 7803 words of font info for 28 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 29i,9n,32p,866b,235s stack positions out of 5000i,500n,10000p,200000b,50000s
-=======
-[4] (qb_api_paper.bbl) [5] (qb_api_paper.aux)
->>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
+(qb_api_paper.bbl [7]) [8] (qb_api_paper.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3101 strings out of 493323
- 43490 string characters out of 3139066
- 116685 words of memory out of 3000000
- 6625 multiletter control sequences out of 15000+200000
- 6279 words of font info for 23 fonts, out of 3000000 for 9000
+ 3120 strings out of 493323
+ 43749 string characters out of 3139066
+ 116688 words of memory out of 3000000
+ 6638 multiletter control sequences out of 15000+200000
+ 7803 words of font info for 28 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
-<<<<<<< HEAD
- 39i,5n,32p,868b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
-=======
- 39i,5n,32p,868b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
->>>>>>> 69e4a773d6fe3a7ad94ddeec13c046e1d6b51ecd
+ 39i,9n,32p,889b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
-<<<<<<< HEAD
 ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 >
-Output written on qb_api_paper.pdf (6 pages, 213331 bytes).
+Output written on qb_api_paper.pdf (8 pages, 340888 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
-=======
-ts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb>
-Output written on qb_api_paper.pdf (5 pages, 195101 bytes).
-PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
->>>>>>> df96d124a49dfb9f3917b9f19437fbf72ed9b0f9
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
