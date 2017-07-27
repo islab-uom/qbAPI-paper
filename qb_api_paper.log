@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.20)  27 JUL 2017 18:21
 entering extended mode
 **./qb_api_paper.tex
@@ -5,12 +6,34 @@ entering extended mode
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
 (llncs.cls
+=======
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  25 JUL 2017 18:38
+entering extended mode
+**qb_api_paper.tex
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\llncs.cls"
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
 Document Class: llncs 2015/06/24 v2.20 
  LaTeX document class for Lecture Notes in Computer Science
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+<<<<<<< HEAD
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+=======
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
 )
 \c@part=\count79
 \c@section=\count80
@@ -25,7 +48,7 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
-Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \c@tracingmulticols=\count87
 \mult@box=\box26
 \multicol@leftmargin=\dimen103
@@ -42,7 +65,6 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \multicolbaselineskip=\skip44
 \partial@page=\box27
 \last@line=\box28
-\maxbalancingoverflow=\dimen108
 \mult@rightbox=\box29
 \mult@grightbox=\box30
 \mult@gfirstbox=\box31
@@ -66,16 +88,17 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \@tempa=\box49
 \c@columnbadness=\count93
 \c@finalcolumnbadness=\count94
-\last@try=\dimen109
-\multicolovershoot=\dimen110
-\multicolundershoot=\dimen111
+\last@try=\dimen108
+\multicolovershoot=\dimen109
+\multicolundershoot=\dimen110
 \mult@nat@firstbox=\box50
 \colbreak@box=\box51
-\mc@col@check@num=\count95
-) (aliascnt.sty
+\multicol@sort@counter=\count95
+)
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\aliascnt.sty"
 Package: aliascnt 2009/09/08 v1.3 Alias counter (HO)
 
-(remreset.sty))
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\remreset.sty"))
 \c@chapter=\count96
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 362.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 363.
@@ -88,22 +111,22 @@ LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 369.
 LaTeX Font Info:    Redeclaring math symbol \Phi on input line 370.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 371.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
-\tocchpnum=\dimen112
-\tocsecnum=\dimen113
-\tocsectotal=\dimen114
-\tocsubsecnum=\dimen115
-\tocsubsectotal=\dimen116
-\tocsubsubsecnum=\dimen117
-\tocsubsubsectotal=\dimen118
-\tocparanum=\dimen119
-\tocparatotal=\dimen120
-\tocsubparanum=\dimen121
+\tocchpnum=\dimen111
+\tocsecnum=\dimen112
+\tocsectotal=\dimen113
+\tocsubsecnum=\dimen114
+\tocsubsectotal=\dimen115
+\tocsubsubsecnum=\dimen116
+\tocsubsubsectotal=\dimen117
+\tocparanum=\dimen118
+\tocparatotal=\dimen119
+\tocsubparanum=\dimen120
 \@tempcntc=\count97
-\fnindent=\dimen122
+\fnindent=\dimen121
 \c@@inst=\count98
 \c@@auth=\count99
 \c@auco=\count100
-\instindent=\dimen123
+\instindent=\dimen122
 \authrun=\box52
 \authorrunning=\toks14
 \tocauthor=\toks15
@@ -125,11 +148,13 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \c@question=\count113
 \c@solution=\count114
 \c@remark=\count115
-\headlineindent=\dimen124
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+\headlineindent=\dimen123
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks18
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
@@ -154,25 +179,29 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count116
 ))
-\Gin@req@height=\dimen125
-\Gin@req@width=\dimen126
+\Gin@req@height=\dimen124
+\Gin@req@width=\dimen125
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
 \lst@mode=\count117
 \lst@gtempboxa=\box54
 \lst@token=\toks19
 \lst@length=\count118
-\lst@currlwidth=\dimen127
+\lst@currlwidth=\dimen126
 \lst@column=\count119
 \lst@pos=\count120
-\lst@lostspace=\dimen128
-\lst@width=\dimen129
+\lst@lostspace=\dimen127
+\lst@width=\dimen128
 \lst@newlines=\count121
 \lst@lineno=\count122
-\lst@maxwidth=\dimen130
+\lst@maxwidth=\dimen129
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+<<<<<<< HEAD
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+=======
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
 \c@lstnumber=\count123
 \lst@skipnumbers=\count124
 \lst@framebox=\box55
@@ -182,9 +211,13 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+<<<<<<< HEAD
 (qb_api_paper.aux)
 \openout1 = `qb_api_paper.aux'.
 
+=======
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
@@ -197,15 +230,20 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
+<<<<<<< HEAD
 \scratchdimen=\dimen131
+=======
+\scratchdimen=\dimen130
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
 \scratchbox=\box56
 \nofMPsegments=\count126
 \nofMParguments=\count127
 \everyMPshowfont=\toks20
 \MPscratchCnt=\count128
+<<<<<<< HEAD
 \MPscratchDim=\dimen132
 \MPnumerator=\count129
 \makeMPintoPDFobject=\count130
@@ -254,6 +292,12 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
+=======
+\MPscratchDim=\dimen131
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks21
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
 )
 \c@lstlisting=\count131
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -267,6 +311,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 39.
+<<<<<<< HEAD
  [2] [3]
 Overfull \hbox (101.68298pt too wide) in paragraph at lines 65--67
 \OT1/cmr/m/n/10 fer-ing data rep-re-sen-ta-tion and vi-su-al-iza-tion. +++ >>>>
@@ -322,6 +367,50 @@ ti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 Output written on qb_api_paper.pdf (8 pages, 340888 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
+=======
+ [2]
+<images/overview.jpg, id=16, 437.4744pt x 400.8576pt>
+File: images/overview.jpg Graphic file (type jpg)
+
+<use images/overview.jpg>
+Package pdftex.def Info: images/overview.jpg used on input line 62.
+(pdftex.def)             Requested size: 312.9803pt x 286.78227pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3] [4 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overv
+iew.jpg>] [5] [6]
+Overfull \hbox (7.15387pt too wide) in paragraph at lines 183--184
+\OT1/cmr/m/n/10 while our ini-tial im-ple-men-ta-tions are build-ing on top of 
+un-der-ly-ing RDF databases,
+ []
+
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.bbl"
+[7]) [8]
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
+ ) 
+Here is how much of TeX's memory you used:
+ 2733 strings out of 493921
+ 37723 string characters out of 3147285
+ 101931 words of memory out of 3000000
+ 6037 multiletter control sequences out of 15000+200000
+ 7803 words of font info for 28 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 29i,9n,32p,917b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on qb_api_paper.pdf (8 pages, 239540 bytes).
+PDF statistics:
+ 70 PDF objects out of 1000 (max. 8388607)
+>>>>>>> 05bc072596b203c8ec8a99afe6ae89679bcfc550
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
