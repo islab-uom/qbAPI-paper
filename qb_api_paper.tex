@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\title{Linked Open Statistical Data API: requirements and design criteria}
+\title{Facilitating the exploitations of Linked Open Statistical Data: JSON-QB API requirements and design criteria}
 
 \author{xxx ddd \and yyy sss}
 
@@ -22,13 +22,13 @@ Recently, many governments, organisations and companies are opening up their dat
 
 A major part of open data concerns statistics (e.g. economical and social indicators) \cite{Capadisli:2013}. These data are often organised in a multidimensional way, where a measured fact is described based on a number of dimensions. In this case, statistical data are compared to data cubes. Thus, we onwards refer to statistical multidimensional data as \textit{data cubes} or just \textit{cubes}.
 
-Linked data has been introduced as a promising paradigm for opening up data because it facilitates data integration on the Web \cite{Bizer:2009}. Concerning statistical data, standard vocabularies such as the RDF data cube (QB) vocabulary\cite{Cyganiak:2014:W3C}, SKOS\footnote{https://www.w3.org/TR/skos-reference/} and XKOS\footnote{http://rdf-vocabulary.ddialliance.org/xkos.html} enable modelling data cubes as Linked Open Statistical Data (LOSD). In this way they facilitate data integration across portals that adopt these technologies and enable the creation of added value services and applications on top of them.
+Linked data has been introduced as a promising paradigm for opening up data because it facilitates data integration on the Web \cite{Bizer:2009}. Concerning statistical data, standard vocabularies such as the RDF data cube (QB) vocabulary\cite{Cyganiak:2014:W3C}, SKOS\cite{Miles:2009:W3C} and XKOS\cite{XKOS} enable modelling data cubes as Linked Open Statistical Data (LOSD). In this way they facilitate data integration across portals that adopt these technologies and enable the creation of added value services and applications on top of them.
 
-Although LOSD potential is high, their exploitation is currently low for two reasons. First, using LOSD requires skills and tooling (e.g. RDF, SPARQL) that are less widespread than some other web technologies (e.g. JSON, REST). For example, there are many visualization libraries that consume data in JSON format (e.g D3.js, charts.js), while there are just a few that consume RDF and their functionality is limited. That's one of the reasons that there are limited application (e.g. visualisation) which exploit LOSD.
+Although LOSD potential is high, their exploitation is currently low for two reasons. First, using LOSD requires skills and tooling (e.g. RDF, SPARQL) that are less widespread than some other web technologies (e.g. JSON, REST). For example, there are many visualization libraries that consume data in JSON format (e.g D3.js, charts.js), while there are just a few that consume RDF and their functionality is limited. That's one of the reasons that there are limited applications (e.g. visualisation) which exploit LOSD.
 
-Second, many portals that use the standard vocabularies (QB, SKOX, XKOS) often adopt different publishing practices \cite{KalampokisChallenges}, thus hampering their interoperability. As a result it is not easy to create generic software tools that operate across LOSD. Usually, case specific software \cite{KaramanouResultsSoFar} are created which assume that data are published only in a specific form. 
+Second, many portals that use the standard vocabularies (QB, SKOS, XKOS) often adopt different publishing practices \cite{KalampokisChallenges}, thus hampering their interoperability. As a result it is not easy to create generic software tools that operate across LOSD. Usually, case specific software \cite{KaramanouResultsSoFar} are created which assume that data are published only in a specific form. 
 
-In order to unleash the full potential of LOSD there is a need to standardize the interaction with LOSD and hide all the complexity. Towards this end, in this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input, output and functionality) with LOSD in a way that facilitates the development of generic software. The API aims to exploit the advantages of linked data (e.g. easy data integration) but hide all the complexity. Specifically, it supports developers to use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of linked data technologies. Moreover, the API offers a uniform way to access the underlying data by hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
+In order to unleash the full potential of LOSD there is a need to standardize the interaction with LOSD and hide all the complexity. Towards this end, in this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input, output and functionality) with LOSD in a way that facilitates the development of generic software. The API aims to exploit the advantages of linked data (e.g. easy data integration) while making data available in a structure and format that is familiar to a larger group of developers.  Some of the flexibility, and associated complexity, of linked data is removed, in favour of simplicity and ease of use. Specifically, it supports developers to use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of linked data technologies. Moreover, the API offers a uniform way to access the underlying data by hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
 
 The rest of the paper is organized as follows ... +++
 
@@ -40,16 +40,16 @@ In order to achieve the objectives of the paper we adopt the following methodolo
 \item Collect user requirements from developers that currently create applications for LOSD. 
 \end{itemize}
 
-Currently, there exist many APIs that facilitate the interaction with data cubes. These APIs offer basic functionality that covers the cube's logical model, but they also support more advanced OLAP operations including aggregations, slicing, roll-up/drill-down etc. For example, the Oracle OLAP Java API \cite{ORACLEAPI} allows users to select, explore, aggregate, calculate, and perform other analytical tasks on data stored at Oracle data warehouse. Olap4j\footnote{http://www.olap4j.org} is another Java API for accessing data cubes, which is compatible with many OLAP servers (e.g. Mondrian, Palo and SAP Business Warehouse). It enables the browsing of meta-data including the cubes, dimensions, hierarchies and members in an schema. Olap4j also supports Multidimensional Expressions (MDX) that is the query language for OLAP.
+Currently, there exist many APIs that facilitate the interaction with data cubes. These APIs offer basic functionality that covers the cube's logical model, but they also support more advanced OLAP operations including aggregations, slicing, roll-up/drill-down etc. For example, the Oracle OLAP Java API \cite{ORACLEAPI} allows users to select, explore, aggregate, calculate, and perform other analytical tasks on data stored in an Oracle data warehouse. Olap4j\footnote{http://www.olap4j.org} is another Java API for accessing data cubes, which is compatible with many OLAP servers (e.g. Mondrian, Palo and SAP Business Warehouse). It enables the browsing of meta-data including the cubes, dimensions, hierarchies and members in an schema. Olap4j also supports Multidimensional Expressions (MDX) that is the query language for OLAP.
 
 There are also some REST APIs with similar functionality. The Data Brewery\footnote{http://databrewery.org/} offers a set of Python tools, including a REST API, for processing and analysing data cubes stored at a relational data base (e.g. MySQL, PostgreSQL). Apache Lens\footnote{lens.apache.org} is an analytics platform that integrates Hadoop with traditional data warehouses (e.g. Apache Hive, Amazon Redshift). Lens provides a REST API to handle data cubes, that also supports ``OLAP Cube QL" - a high level SQL like language to query data organized as data cubes.
 
-All the above APIs handle data cubes that are stored at traditional databases or data-warehouse. However, none of them can handle data cubes  stored as linked data using the QB vocabulary.  
+All the above APIs handle data cubes that are stored in traditional databases or data-warehouse. However, none of them can handle data cubes  stored as linked data using the QB vocabulary.  
 
 Regarding the output of the REST APIs, JSON is a commonly used simple format. Existing REST APIs use 
 case-specific JSON responses, however JSON extension formats have already been proposed to model data cubes and linked data. Specifically, JSON-LD\footnote{https://json-ld.org} offers a method for encoding linked data using JSON. While, JSON-stat\footnote{https://json-stat.org/} is a JSON format for modelling linked statistical data, however the structure is too complicated when it comes to simple visualizations (e.g. maps). Moreover, it has some limitations e.g. does not support pagination of results. 
 
-Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for LOSD. The discussion mainly occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit LOSD for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop at Manchester with participation of relevant developers. 
+Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for LOSD. The discussion mainly occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit LOSD for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop in Manchester with participation of relevant developers. 
 
 \section{Solution overview}\label{sec:overview}
 
@@ -85,9 +85,6 @@ The API offers a uniform way to handle data cubes. It receives the API calls and
 \end{figure}
 
 
-
-
-
 \section{Requirements and design criteria}\label{sec:reqs}
 
 This section presents the functional and non-functional requirements and design criteria related to the Linked Open Statistical Data API.
@@ -103,8 +100,8 @@ A summary of the requirements is presented at table \ref{tbl:req}.
 \noalign{\smallskip}
 \multirow{3}{*}{functional} & Search data cubes & Search for data cubes at linked statistical data portals based on specified criteria\\\noalign{\smallskip}
  & Explore data cube structure & Having a cube at hand, get information about its structure (e.g. dimensions, measures, attributes)\\\noalign{\smallskip}
- & Slicing and filtering & Get a sub-set (slice) of cube observations based on user-defined criteria\\\noalign{\smallskip}\hline
-\multirow{4}{*}{non-functional} & Easy of use & Provide a style of interaction that is familiar to web developers\\\noalign{\smallskip}
+ & Slicing and filtering & Get a sub-set (slice or dice) of cube observations based on user-defined criteria\\\noalign{\smallskip}\hline
+\multirow{4}{*}{non-functional} & Ease of use & Provide a style of interaction that is familiar to web developers\\\noalign{\smallskip}
  & Uniform data access & Hide any discrepancies of published data cubes\\\noalign{\smallskip}
  & High performance & Provide responses fast even for demanding requests\\\noalign{\smallskip}
  & Extensibility & Enable the addition of new or the modification of existing functionality\\\noalign{\smallskip}
@@ -145,13 +142,15 @@ There are already methods available for downloading entire data cubes but people
 \item Hierarchical data filtering e.g. refArea=``all council areas in Scotland"
 \end{itemize}
 
-In many cases, applications do not need all the requested data at once, because they process them at bunches. For example, a cube browser shows a part of the data allowing the user to navigate to the previous/next page of data. Thus, the API should support paging and ordering of the results. The ordering of the results can be in ascending or descending order based on one or more dimensions. However, in some cases lexicographical ordering is not appropriate (e.g. for the days of the week), thus other types of ordering should be applied.
+In many cases, applications do not need all the requested data at once, because they process them at bunches. For example, a cube browser shows a part of the data allowing the user to navigate to the previous/next page of data. Thus, the API should support paging and ordering of the results. The ordering of the results can be in ascending or descending order based on a dimension. However, in some cases the ordering of the results may be complicated for example ordering based on 2 ore more dimension. Moreover, lexicographical ordering is not always appropriate (e.g. for the days of the week), thus other types of ordering should be applied or the ordering of results based on multiple dimensions
 
-\subsection{Easy of use}
+
+
+\subsection{Ease of use}
 
 Linked data offer many benefits to web developers, including the easy integration on the web. However, linked data technologies (i.e. RDF, SPARQL) are unfamiliar to many developers, thus creating many obstacles at their adoption. The purposes of the API is to exploit the advantages of linked data through a style of interaction that is familiar to web developers, thus helping them create data visualisations and applications.
 
-The easy of use of an API is related both to the input of the API (API calls) and the out put. Regarding the input of the API there are mainly two design options: i) use a separate parameter for each required input and ii) model all the required input as a JSON object. The first option is post popular at existing APIs, while the second is more flexible and expressive. For example, it enables the expression of relations other than equality e.g. greater than (see Table \ref{tbl:apiinput}).
+The ease of use of an API is related both to the input of the API (API calls) and the output. Regarding the input of the API there are mainly two design options: i) use a separate parameter for each required input and ii) model all the required input as a JSON object. The first option is most popular at existing APIs, while the second is more flexible and expressive. For example, it enables the expression of relations other than equality e.g. greater than (see Table \ref{tbl:apiinput}).
 
 \begin{table}
 \caption{Input of API: separate parameters vs JSON object}
@@ -229,14 +228,14 @@ Ideally, the standardization of the API specification will also lead to the form
 
 The volume of data published as linked data cubes is big, reaching the magnitude of million triples per cube. Thus, SPARQL queries that iterate over all the observations tend to be slow. For example, a query to get all the dimension values that appear at a cube needs to iterate over all the observations. As a result, applications that use such queries seem to be non-responsive. 
 
-The API can improve performance of demanding SPARQL queries through efficient caching of the responses. The caching policy (e.g. Least Recently Used, Least Frequently Used) plays an important role at the performance improvement. Note that caching of API responses is much easier that caching of arbitrary SPARQL queries. 
+The API can improve performance of demanding SPARQL queries through efficient caching of the responses. The caching policy (e.g. Least Recently Used, Least Frequently Used) plays an important role at the performance improvement. Note that caching of API responses is much easier that caching of arbitrary SPARQL queries. Allowing an arbitrary SPARQL query to run on a collection of data means that if any of the data changes, it is possible that the query response changes.  It is complex to analyse which queries touch a particular data cube or particular part of the data, thus making cache clearing difficult.  With the API call, most requests will return data from individual data cubes, so it is easier to know which cached responses must be invalidated when data is updated.
 
-Another task that can improve the performance of the API is the pre-computation of aggregations: i) across a dimension of the cube e.g. compute the SUM of the sales over time and thus ignore the time dimension of the cube and ii) across a hierarchy e.g. if a cube contains the election results at municipality level, then aggregations can be computed at region and at country level. The pre-computation of the aggregations facilitates the execution of queries, because there in not need to compute the aggregations on-the-fly when requested. 
+Another task that can improve the performance of the API is the pre-computation of aggregations: i) across a dimension of the cube e.g. compute the SUM of the sales over time and thus ignore the time dimension of the cube and ii) across a hierarchy e.g. if a cube contains the election results at municipality level, then aggregations can be computed at region and at country level. The pre-computation of the aggregations facilitates the execution of queries, because there in not the need to compute the aggregations on-the-fly when requested. 
 
 
 \subsection{Extensibility}
 
-Finally, a requirement of the API is to be extensible, thus take future growth into consideration minimizing the effort required for the extension. Extensions can be implemented through the :
+Finally, the API should be extensible, thus take future growth into consideration minimizing the effort required for the extension. Extensions can be implemented through the :
 \begin{itemize}
 \item addition of new functionality e.g. while the initial aim is to build an API on top of RDF databases, other kinds of database could be used, enabling flexibility and innovation
 \item modification of existing functionality e.g. support modified search (see section \ref{sec:search}) of filtering options (see section \ref{sec:slice}).
