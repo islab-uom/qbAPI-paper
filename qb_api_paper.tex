@@ -34,6 +34,24 @@ In order to unleash the full potential of LOSD there is a need to standardize th
 
 The rest of the paper is organized as follows ... +++
 
+\section{Motivation}\label{sec:motivation}
+
+A large part of statistical data is isolated, meaning that it exists in different portals as different datasets. The technology of Linked data and RDF Data Cube vocabulary solves the problem of distributed data sources through their integration, creating interoperable linked statistical data portals. These portals are used for the design and creation of the JSON-QB API. 
+ 
+Except from data integration, the main aim of API is the implementation of data access layers. As figure 1 shows, the traditional architecture is based on monolithic, vertical applications where software is developed for layers. Although, the data access layers are similar in both tools, each tool uses different data access. More importantly, the development of the data access layers requires significant programming expertise in LOSD, SPARQL and RDF Data Cube vocabulary skills and knowledge of the different data publish practices. As a result, data software silos are created, being a significant barrier for the exploitation of LOSD. 
+
+ 
+ 
+In addition, there is a need to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. As well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints. By this way cost can be reduced and reliability of open services could be improved.
+
+\begin{figure}
+\begin{center}
+  \includegraphics[width=90mm]{images/overview1.jpg}
+  \end{center}
+\caption{AS-IS overview}
+\label{fig:overview1}
+\end{figure}
+
 \section{Methodology}\label{sec:methodology}
 
 In order to achieve the objectives of the paper we adopt the following methodology:
@@ -53,35 +71,23 @@ case-specific JSON responses, however JSON extension formats have already been p
 
 Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for LOSD. The discussion mainly occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit LOSD for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop in Manchester with participation of relevant developers. 
 
-\section{Solution overview}\label{sec:overview}
-
-A large part of statistical data is isolated, meaning that it exists in different portals as different datasets. The technology of Linked data and RDF Data Cube vocabulary solves the problem of distributed data sources through their integration, creating interoperable linked statistical data portals. These portals are used for the design and creation of the JSON-QB API. 
- 
-Except from data integration, the main aim of API is the implementation of data access layers. As figure 1 shows, the traditional architecture is based on monolithic, vertical applications where software is developed for layers. Although, the data access layers are similar in both tools, each tool uses different data access. More importantly, the development of the data access layers requires significant programming expertise in LOSD, SPARQL and RDF Data Cube vocabulary skills and knowledge of the different data publish practices. As a result, data software silos are created, being a significant barrier for the exploitation of LOSD. 
-
-The architecture of the API is relatively simple, it is developed as a middle-ware between the Linked Open Statistical Data (stored in RDF repositories) and the applications that consume the data. In order to overcome the problem of data software silos, as figure 2 shows, the implementation of the API abolishes the need to implement different data access layers for each application.
-
-Moreover, the API offers a uniform way to handle data cubes. It receives the API calls and translates them to SPARQL queries that are executed at Linked Open Statistical Data. Then, the API gets the result, expressed using the RDF Data cube vocabulary, and transforms it to a JSON representation that can easily be consumed by applications. 
- 
-In addition, there is a need to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. As well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints. By this way cost can be reduced and reliability of open services could be improved.
-
-\begin{figure}
-\begin{center}
-  \includegraphics[width=90mm]{images/overview1.jpg}
-  \end{center}
-\caption{AS-IS overview}
-\label{fig:overview1}
-\end{figure}
-
-
-\begin{figure}[h!]
-  \includegraphics[width=110mm]{images/overview.jpg}
-\caption{Solution overview}
-\label{fig:overview}
-\end{figure}
-
 
 \section{Requirements and design criteria}\label{sec:reqs}
+
+
+
+- the API should follow patterns and practices familiar to 'mainstream' web developers
+- it should be suitable for use by a wide range of statistics publishing organisations, so that as far as possible data users can have a standard interface to statistical data. This will put constraints on the way that publishers manage their data - those constraints should be reasonable and manageable
+- it is not necessary for the API to be a complete 'round-trippable' representation of the data: it is acceptable to lose some information in favour of greater ease of use
+- it should be well-suited to development of visualisations and interactive applications that use the data
+- while we want to hide some of the complexity of linked data, responses should include URIs as identifiers of key entities, to retain the connection to data on the web and to support reliable combining of data from different sources within a data consuming application.
+
+---> the above leads to the choice of JSON as a response format.  Maybe we mention possible use of the existing JSON-LD standard as a way of including information about URIs in a simple way
+
+We should note that while our objective is to provide an API on top of a triple store holding linked data, the same API could be implemented with other approaches to storing data
+
+
+
 
 This section presents the functional and non-functional requirements and design criteria related to the Linked Open Statistical Data API.
 A summary of the requirements is presented at table \ref{tbl:req}.
@@ -238,7 +244,22 @@ Finally, the API should be extensible, thus take future growth into consideratio
 \end{itemize} 
 
 
-\section{Implementation}\label{sec:impl}
+\section{Solution}\label{sec:solution}
+
+\subsection{Overview}\label{sec:overview}
+
+The architecture of the API is relatively simple, it is developed as a middle-ware between the Linked Open Statistical Data (stored in RDF repositories) and the applications that consume the data. In order to overcome the problem of data software silos, as figure 2 shows, the implementation of the API abolishes the need to implement different data access layers for each application.
+
+Moreover, the API offers a uniform way to handle data cubes. It receives the API calls and translates them to SPARQL queries that are executed at Linked Open Statistical Data. Then, the API gets the result, expressed using the RDF Data cube vocabulary, and transforms it to a JSON representation that can easily be consumed by applications.
+
+
+\begin{figure}[h!]
+  \includegraphics[width=110mm]{images/overview.jpg}
+\caption{Solution overview}
+\label{fig:overview}
+\end{figure}
+
+\subsection{Implementation}\label{sec:impl}
 
 
 The API implementation\footnote{https://github.com/OpenGovIntelligence/json-qb-api-implementation} aims to provide an easy to use API for web developers that use statistical data stored in the form of RDF Data cubes. It  can be installed on top of any RDF repository and offer basic and advanced operations on RDF Data cubes assuming that: i) they are stored using the RDF Data Cube Vocabulary, ii) they follow a specific application profile (common practices) and iii) are accessible through a SPARQL endpoint.  All the functionality is offered through simple REST calls. The API translates each call to a SPARQL query that is executed at the linked data cubes. The returned results are always transformed  in JSON format 
