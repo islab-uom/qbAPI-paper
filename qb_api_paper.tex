@@ -36,6 +36,12 @@ The rest of the paper is organized as follows ... +++
 
 \section{Motivation}\label{sec:motivation}
 
+Currently, many LOSD have been made available on the Web through official portals launched by private or public bodies that own the data. For example, the European Commission's Digital Agenda provides its Scoreboard\footnote{\url{http://digital-agenda-data.eu/data}} as LOSD. Census data of 2011 from Ireland\footnote{\url{http://data.cso.ie}} and Italy\footnote{\url{http://datiopen.istat.it}} have been published as linked data by their National Statistics Institutes. The Department for Communities and Local Government (DCLG)\footnote{\url{http://opendatacommunities.org/data }} in the UK, the Scottish Government\footnote{\url{http://statistics.gov.scot}}, and the Statistics Bureau of Japan\footnote{\url{http://data.e-stat.go.jp}} opened up their statistics as linked data. 
+
+Many tools have been developed to exploit these data. ...
+
+
+
 A large part of statistical data is isolated, meaning that it exists in different portals as different datasets. The technology of Linked data and RDF Data Cube vocabulary solves the problem of distributed data sources through their integration, creating interoperable linked statistical data portals. These portals are used for the design and creation of the JSON-QB API. 
  
 Except from data integration, the main aim of API is the implementation of data access layers. As figure 1 shows, the traditional architecture is based on monolithic, vertical applications where software is developed for layers. Although, the data access layers are similar in both tools, each tool uses different data access. More importantly, the development of the data access layers requires significant programming expertise in LOSD, SPARQL and RDF Data Cube vocabulary skills and knowledge of the different data publish practices. As a result, data software silos are created, being a significant barrier for the exploitation of LOSD. 
