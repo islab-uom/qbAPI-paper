@@ -22,13 +22,13 @@ Recently, many governments, organisations and companies are opening up their dat
 
 A major part of open data concerns statistics (e.g. economical and social indicators) \cite{Capadisli:2013}. These data are often organised in a multidimensional way, where a measured fact is described based on a number of dimensions. In this case, statistical data are compared to data cubes. Thus, we onwards refer to statistical multidimensional data as \textit{data cubes} or just \textit{cubes}.
 
-Linked data has been introduced as a promising paradigm for opening up data because it facilitates data integration on the Web \cite{Bizer:2009}. Concerning statistical data, standard vocabularies such as the RDF data cube (QB) vocabulary\cite{Cyganiak:2014:W3C}, SKOS\footnote{https://www.w3.org/TR/skos-reference/} and XKOS\footnote{http://rdf-vocabulary.ddialliance.org/xkos.html} enable modelling data cubes as Linked Open Statistical Data (LOSD). In this way they facilitate data integration across portals and enable the creation of added value services and applications on top of them.
+Linked data has been introduced as a promising paradigm for opening up data because it facilitates data integration on the Web \cite{Bizer:2009}. Concerning statistical data, standard vocabularies such as the RDF data cube (QB) vocabulary\cite{Cyganiak:2014:W3C}, SKOS\footnote{https://www.w3.org/TR/skos-reference/} and XKOS\footnote{http://rdf-vocabulary.ddialliance.org/xkos.html} enable modelling data cubes as Linked Open Statistical Data (LOSD). In this way they facilitate data integration across portals that adopt these technologies and enable the creation of added value services and applications on top of them.
 
-Although LOSD potential is high, their exploitation is currently low for two reasons. First, using LOSD requires skills and tooling for use of linked data (e.g. RDF, SPARQL) are less widespread than some other web technologies (e.g. JSON, REST). For example, there are many visualization libraries that consume data in JSON format (e.g D3.js, charts.js), while there are just a few that consume RDF and their functionality is limited. That's one of the reasons that there are limited application (e.g. visualisation) which exploit LOSD.
+Although LOSD potential is high, their exploitation is currently low for two reasons. First, using LOSD requires skills and tooling (e.g. RDF, SPARQL) that are less widespread than some other web technologies (e.g. JSON, REST). For example, there are many visualization libraries that consume data in JSON format (e.g D3.js, charts.js), while there are just a few that consume RDF and their functionality is limited. That's one of the reasons that there are limited application (e.g. visualisation) which exploit LOSD.
 
 Second, many portals that use the standard vocabularies (QB, SKOX, XKOS) often adopt different publishing practices \cite{KalampokisChallenges}, thus hampering their interoperability. As a result it is not easy to create generic software tools that operate across LOSD. Usually, case specific software \cite{KaramanouResultsSoFar} are created which assume that data are published only in a specific form. 
 
-In order to unleash the full potential of LOSD there is a need to standardize the interaction with LOSD and hide all the complexity. Towards this end, in this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input, output and functionality) with LOSD in a way that facilitates the development of generic software. The API aims to exploit the advantages of linked data (e.g. easy data integration) but hide all the complexity. Specifically, it supports developers use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of linked data technologies. Moreover, the API offers a uniform way to access the underlying data by hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
+In order to unleash the full potential of LOSD there is a need to standardize the interaction with LOSD and hide all the complexity. Towards this end, in this paper we describe the requirements and design criteria of an API that standardizes the interaction (i.e. input, output and functionality) with LOSD in a way that facilitates the development of generic software. The API aims to exploit the advantages of linked data (e.g. easy data integration) but hide all the complexity. Specifically, it supports developers to use linked statistical data stored in the form of an RDF Data Cube, while assuming minimal knowledge of linked data technologies. Moreover, the API offers a uniform way to access the underlying data by hiding any data discrepancies, thus enabling the development of generic software tools that operate across datasets. 
 
 The rest of the paper is organized as follows ... +++
 
@@ -37,7 +37,7 @@ The rest of the paper is organized as follows ... +++
 In order to achieve the objectives of the paper we adopt the following methodology:
 \begin{itemize}
 \item Study the related work. We focus on: i) APIs that facilitate the interaction with data cubes and ii) data formats that can be exploited to represent the result (i.e. output) of the API. 
-\item Collect user requirements from developers that currently create applications for linked data cubes. 
+\item Collect user requirements from developers that currently create applications for LOSD. 
 \end{itemize}
 
 Currently, there exist many APIs that facilitate the interaction with data cubes. These APIs offer basic functionality that covers the cube's logical model, but they also support more advanced OLAP operations including aggregations, slicing, roll-up/drill-down etc. For example, the Oracle OLAP Java API \cite{ORACLEAPI} allows users to select, explore, aggregate, calculate, and perform other analytical tasks on data stored at Oracle data warehouse. Olap4j\footnote{http://www.olap4j.org} is another Java API for accessing data cubes, which is compatible with many OLAP servers (e.g. Mondrian, Palo and SAP Business Warehouse). It enables the browsing of meta-data including the cubes, dimensions, hierarchies and members in an schema. Olap4j also supports Multidimensional Expressions (MDX) that is the query language for OLAP.
@@ -47,11 +47,9 @@ There are also some REST APIs with similar functionality. The Data Brewery\footn
 All the above APIs handle data cubes that are stored at traditional databases or data-warehouse. However, none of them can handle data cubes  stored as linked data using the QB vocabulary.  
 
 Regarding the output of the REST APIs, JSON is a commonly used simple format. Existing REST APIs use 
-case-specific JSON responses, however JSON extension formats have already been proposed to model data cubes and linked data. Specifically, JSON-LD\footnote{https://json-ld.org} offers a method for encoding linked data using JSON. While, JSON-stat\footnote{https://json-stat.org/} is a JSON format for modelling statistical data (i.e. data cubes), however the structure is too complicated when it comes to simple visualizations (e.g. maps). Moreover, it has some limitations e.g. does not support pagination of results. 
+case-specific JSON responses, however JSON extension formats have already been proposed to model data cubes and linked data. Specifically, JSON-LD\footnote{https://json-ld.org} offers a method for encoding linked data using JSON. While, JSON-stat\footnote{https://json-stat.org/} is a JSON format for modelling linked statistical data, however the structure is too complicated when it comes to simple visualizations (e.g. maps). Moreover, it has some limitations e.g. does not support pagination of results. 
 
-Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for linked data cubes. The discussion mainly occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit linked data cubes for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop at Manchester with participation of relevant developers. 
-
-
+Finally, to collect the user requirements, we established a continuous discussion with developers that currently create applications for LOSD. The discussion mainly occurs within the EU funded project OpenGovIntelligence\footnote{http://www.opengovintelligence.eu/}, that aims to exploit LOSD for improving the public services. To facilitate the collection of requirements we organized a dedicated workshop at Manchester with participation of relevant developers. 
 
 \section{Solution overview}\label{sec:overview}
 
@@ -67,11 +65,15 @@ The architecture of the API is relatively simple, it is developed as a middle-wa
 
 In addition, there is a need to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. As well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints. By this way cost can be reduced and reliability of open services could be improved.
 
-\begin{figure}[h!]
-  \includegraphics[width=90mm]{images/overview1.jpg}
+
+\begin{figure}
+\begin{center}
+  \includegraphics[width=70mm]{images/overview1.jpg}
+  \end{center}
 \caption{AS-IS overview}
 \label{fig:overview1}
 \end{figure}
+
 
 \begin{figure}[h!]
   \includegraphics[width=110mm]{images/overview.jpg}

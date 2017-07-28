@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  27 JUL 2017 19:02
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  28 JUL 2017 10:10
 entering extended mode
 **qb_api_paper.tex
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.tex"
@@ -252,11 +252,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 25.
 
-
-LaTeX Warning: Citation `KaramanouResultsSoFar' on page 1 undefined on input li
-ne 29.
-
-
 Overfull \hbox (0.54381pt too wide) in paragraph at lines 29--30
 []\OT1/cmr/m/n/10 Second, many por-tals that use the stan-dard vo-cab-u-lar-ies
  (QB, SKOX, XKOS)
@@ -270,25 +265,25 @@ File: images/overview1.jpg Graphic file (type jpg)
 
 <use images/overview1.jpg>
 Package pdftex.def Info: images/overview1.jpg used on input line 71.
-(pdftex.def)             Requested size: 256.0748pt x 211.07938pt.
+(pdftex.def)             Requested size: 199.16928pt x 164.16351pt.
 
 <images/overview.jpg, id=20, 437.4744pt x 348.8232pt>
 File: images/overview.jpg Graphic file (type jpg)
 
 <use images/overview.jpg>
-Package pdftex.def Info: images/overview.jpg used on input line 77.
+Package pdftex.def Info: images/overview.jpg used on input line 79.
 (pdftex.def)             Requested size: 312.9803pt x 249.55573pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (1.4205pt too wide) in paragraph at lines 102--102
+Overfull \hbox (1.4205pt too wide) in paragraph at lines 104--104
 []|[]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--109
+Underfull \hbox (badness 10000) in paragraph at lines 95--111
 [][]
  []
 
@@ -299,7 +294,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 1.jpg>]
 [5 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overview.
 jpg>] [6] [7] [8] [9]
-Overfull \hbox (47.73471pt too wide) in paragraph at lines 258--327
+Overfull \hbox (47.73471pt too wide) in paragraph at lines 260--329
 [][]
  []
 
@@ -310,7 +305,7 @@ Overfull \hbox (47.73471pt too wide) in paragraph at lines 258--327
 Here is how much of TeX's memory you used:
  2847 strings out of 493921
  39251 string characters out of 3147285
- 104808 words of memory out of 3000000
+ 104811 words of memory out of 3000000
  6140 multiletter control sequences out of 15000+200000
  7970 words of font info for 29 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -325,7 +320,7 @@ sfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on qb_api_paper.pdf (11 pages, 324632 bytes).
+Output written on qb_api_paper.pdf (11 pages, 324747 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
