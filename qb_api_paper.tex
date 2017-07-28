@@ -14,6 +14,8 @@
 
 \begin{abstract}
 
+Nowadays, open data becomes more and more popular while applications using them are increasingly created. The data type of open data is mainly statistical, providing variables with measures, units and dimensions that create data cubes. Linked data are presented as the best practice to publish and integrate statistical open data which are opened by governments, organisations and companies. However, LOSD technologies are less widespread that other technologies such as JSON data format. Moreover, different publish practices are being used, hampering data interoperability and leading to data software silos. The purpose of this paper is to present the methodology, the requirements and the design criteria for creation of JSON-QB API, an API which solves the obstacles were mentioned. This paper, also, presents the API implementation through different examples.
+
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -53,25 +55,19 @@ Finally, to collect the user requirements, we established a continuous discussio
 
 \section{Solution overview}\label{sec:overview}
 
-A large part of statistical data is isolated, meaning that exists in different portals as different datasets. The technology of Linked data and RDF Data Cube vocabulary solves the problem of distributed data sources through their integration, creating interoperable linked statistical data portals. These portals are used for the design and creation of a Linked Open Statistical Data API. 
+A large part of statistical data is isolated, meaning that it exists in different portals as different datasets. The technology of Linked data and RDF Data Cube vocabulary solves the problem of distributed data sources through their integration, creating interoperable linked statistical data portals. These portals are used for the design and creation of the JSON-QB API. 
  
-Except from data integration, main aim of API is the implementation of data access layers.As figure 1 shows, the traditional architecture is based on monolithic, vertical applications where sofware is developed for layers. Although, the data access layers are similar in both
-tools, each tool uses different data access. More importantly, the development of the data access layers requires significant programming expertise in LOSD, SPARQL and RDF Data Cube vocabulary skills and knowledge of the different data publish practices. As a result, data software silos are created, being a significant barrier for the exploitation of LOSD. 
+Except from data integration, the main aim of API is the implementation of data access layers. As figure 1 shows, the traditional architecture is based on monolithic, vertical applications where software is developed for layers. Although, the data access layers are similar in both tools, each tool uses different data access. More importantly, the development of the data access layers requires significant programming expertise in LOSD, SPARQL and RDF Data Cube vocabulary skills and knowledge of the different data publish practices. As a result, data software silos are created, being a significant barrier for the exploitation of LOSD. 
 
-The architecture of the API is developed in JSON format offering benefits which are not exist until now. The implementation of API abolishes the need to implement different data access layers for each tool is created. In the traditional architecture data access layers had to be coded separately leading to additional costs. The API can be installed on top of any RDF repository and offers basic and advanced operations on RDF Data cubes.
+The architecture of the API is relatively simple, it is developed as a middle-ware between the Linked Open Statistical Data (stored in RDF repositories) and the applications that consume the data. In order to overcome the problem of data software silos, as figure 2 shows, the implementation of the API abolishes the need to implement different data access layers for each application.
+
+Moreover, the API offers a uniform way to handle data cubes. It receives the API calls and translates them to SPARQL queries that are executed at Linked Open Statistical Data. Then, the API gets the result, expressed using the RDF Data cube vocabulary, and transforms it to a JSON representation that can easily be consumed by applications. 
  
-Moreover, using JSON for accessing RDF Stores is an easier way to build software applications. Developers need to know and use neither RDF Data Cube vocabulary nor expert programming skills at LOSD. They have full access at LOSD just using JSON, a much more common and understandable programming language. Through SPARQL queries the API has access at data cubes returning the asked data in the re-used format of JSON. By this way, all LOSD-related programming and its complexity is now hidden.
-
-The architecture of the API is relatively simple, it is developed as a middle-ware between the Linked Open Statistical Data (stored at RDF repositories) and the applications that consume the data. In the traditional architecture, data access layers had to be coded separately leading to additional costs. However, the implementation of the API abolishes the need to implement different data access layers for each application. 
-
 In addition, there is a need to standardise the API specification and try to get broad support for it, so that many data publishers can provide data in a compatible way, making tools interoperable. As well as making data easier to consume, using the API as the main method of delivering machine readable extracts of data would remove or greatly reduce the need for data publishers to provide public SPARQL endpoints. By this way cost can be reduced and reliability of open services could be improved.
-
-
-The API offers a uniform way to handle data cubes. It receives the API calls and translates them to SPARQL queries that are executed at Linked Open Statistical Data. Then, the API gets the result, expressed using the RDF Data cube vocabulary, and transforms it to a JSON representation that can easily be consumed by applications.
 
 \begin{figure}
 \begin{center}
-  \includegraphics[width=70mm]{images/overview1.jpg}
+  \includegraphics[width=110mm]{images/overview1.jpg}
   \end{center}
 \caption{AS-IS overview}
 \label{fig:overview1}
