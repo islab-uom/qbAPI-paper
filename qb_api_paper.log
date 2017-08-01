@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  1 AUG 2017 18:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  1 AUG 2017 18:34
 entering extended mode
 **qb_api_paper.tex
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.tex"
@@ -215,7 +215,7 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \TX@cols=\count125
 \TX@ftn=\toks21
 )
-No file qb_api_paper.aux.
+("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
@@ -271,74 +271,101 @@ LaTeX Warning: Citation `Miles:2009:W3C' on page 1 undefined on input line 27.
 
 LaTeX Warning: Citation `XKOS' on page 1 undefined on input line 27.
 
+
+LaTeX Warning: Citation `KalampokisChallenges' on page 1 undefined on input lin
+e 31.
+
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-LaTeX Warning: Citation `KalampokisChallenges' on page 2 undefined on input lin
-e 31.
-
-
-LaTeX Warning: Citation `KaramanouResultsSoFar' on page 2 undefined on input li
-ne 31.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 39.
-[2] <images/overview1.jpg, id=16, 603.2136pt x 360.3864pt>
-File: images/overview1.jpg Graphic file (type jpg)
-
-<use images/overview1.jpg>
-Package pdftex.def Info: images/overview1.jpg used on input line 55.
-(pdftex.def)             Requested size: 341.43306pt x 203.99263pt.
- [3 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overview
-1.jpg>]
-
-LaTeX Warning: Citation `ORACLEAPI' on page 4 undefined on input line 69.
 
 
-Underfull \vbox (badness 1242) has occurred while \output is active []
-
- [4]
-
-LaTeX Warning: Reference `tbl:req' on page 5 undefined on input line 99.
+LaTeX Warning: Citation `Kalampokis:2014' on page 2 undefined on input line 41.
 
 
-Overfull \hbox (1.4205pt too wide) in paragraph at lines 112--112
+
+LaTeX Warning: Citation `CODE:2014' on page 2 undefined on input line 41.
+
+
+LaTeX Warning: Citation `KalampokisIAOS' on page 2 undefined on input line 41.
+
+
+LaTeX Warning: Citation `QB2OLAP' on page 2 undefined on input line 41.
+
+
+LaTeX Warning: Citation `Kalampokis:2014' on page 2 undefined on input line 41.
+
+
+
+LaTeX Warning: Citation `Cubeviz' on page 2 undefined on input line 41.
+
+
+LaTeX Warning: Citation `Statspace' on page 2 undefined on input line 41.
+
+[2]
+
+LaTeX Warning: Reference `fig:asis' on page 3 undefined on input line 45.
+
+<images/asis.jpg, id=16, 599.841pt x 263.0628pt>
+File: images/asis.jpg Graphic file (type jpg)
+ <use images/asis.jpg>
+Package pdftex.def Info: images/asis.jpg used on input line 51.
+(pdftex.def)             Requested size: 341.43306pt x 149.74263pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/asis.jpg
+>]
+
+LaTeX Warning: Citation `ORACLEAPI' on page 4 undefined on input line 65.
+
+[4]
+Overfull \hbox (1.4205pt too wide) in paragraph at lines 92--92
 []|[]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--119
+Underfull \hbox (badness 10000) in paragraph at lines 83--99
 [][]
  []
 
-[5] [6]
-
-LaTeX Warning: Reference `tbl:apiinput' on page 7 undefined on input line 161.
-
-[7] [8]
-
-LaTeX Warning: Reference `sec:search' on page 9 undefined on input line 249.
-
-
-LaTeX Warning: Reference `sec:slice' on page 9 undefined on input line 249.
-
-[9] <images/overview.jpg, id=42, 436.5108pt x 387.3672pt>
+[5] [6] [7] [8] <images/overview.jpg, id=38, 436.5108pt x 387.3672pt>
 File: images/overview.jpg Graphic file (type jpg)
 
 <use images/overview.jpg>
-Package pdftex.def Info: images/overview.jpg used on input line 263.
+Package pdftex.def Info: images/overview.jpg used on input line 223.
 (pdftex.def)             Requested size: 312.9803pt x 277.74567pt.
- [10 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overvie
-w.jpg>]
-Overfull \hbox (47.73471pt too wide) in paragraph at lines 285--354
+ [9 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overview
+.jpg>]
+Overfull \hbox (47.73471pt too wide) in paragraph at lines 244--311
 [][]
  []
 
+[10]
+
+LaTeX Warning: Reference `fig:cubeVisualizer' on page 11 undefined on input lin
+e 316.
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+<images/cubeVisualizer.png, id=45, 959.83594pt x 663.22781pt>
+File: images/cubeVisualizer.png Graphic file (type png)
+
+<use images/cubeVisualizer.png>
+Package pdftex.def Info: images/cubeVisualizer.png used on input line 320.
+(pdftex.def)             Requested size: 312.9803pt x 216.265pt.
+
 No file qb_api_paper.bbl.
-[11]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/cubeVis
+ualizer.png>] [12]
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
 
 LaTeX Warning: There were undefined references.
@@ -348,13 +375,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2846 strings out of 493921
- 38994 string characters out of 3147285
- 104677 words of memory out of 3000000
- 6143 multiletter control sequences out of 15000+200000
- 7970 words of font info for 29 fonts, out of 3000000 for 9000
+ 2859 strings out of 493921
+ 39319 string characters out of 3147285
+ 104809 words of memory out of 3000000
+ 6153 multiletter control sequences out of 15000+200000
+ 7802 words of font info for 28 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,10n,32p,1057b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,10n,32p,1052b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTe
@@ -363,11 +390,10 @@ nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on qb_api_paper.pdf (11 pages, 397603 bytes).
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on qb_api_paper.pdf (12 pages, 407199 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 86 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
