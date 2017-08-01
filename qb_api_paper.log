@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  28 JUL 2017 10:10
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.26)  1 AUG 2017 10:58
 entering extended mode
 **qb_api_paper.tex
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.tex"
@@ -247,69 +247,61 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 13.
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 25.
+(Font)              <9> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 25.
-
-Overfull \hbox (0.54381pt too wide) in paragraph at lines 29--30
-[]\OT1/cmr/m/n/10 Second, many por-tals that use the stan-dard vo-cab-u-lar-ies
- (QB, SKOX, XKOS)
- []
-
-[1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-<images/overview1.jpg, id=19, 317.988pt x 262.0992pt>
+(Font)              <6> on input line 39.
+ [2]
+<images/overview1.jpg, id=15, 603.2136pt x 360.3864pt>
 File: images/overview1.jpg Graphic file (type jpg)
 
 <use images/overview1.jpg>
-Package pdftex.def Info: images/overview1.jpg used on input line 71.
-(pdftex.def)             Requested size: 199.16928pt x 164.16351pt.
+Package pdftex.def Info: images/overview1.jpg used on input line 55.
+(pdftex.def)             Requested size: 341.43306pt x 203.99263pt.
+ [3 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overview
+1.jpg>]
+Underfull \vbox (badness 1242) has occurred while \output is active []
 
-<images/overview.jpg, id=20, 437.4744pt x 348.8232pt>
-File: images/overview.jpg Graphic file (type jpg)
-
-<use images/overview.jpg>
-Package pdftex.def Info: images/overview.jpg used on input line 79.
-(pdftex.def)             Requested size: 312.9803pt x 249.55573pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (1.4205pt too wide) in paragraph at lines 104--104
+ [4]
+Overfull \hbox (1.4205pt too wide) in paragraph at lines 112--112
 []|[]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--111
+Underfull \hbox (badness 10000) in paragraph at lines 103--119
 [][]
  []
 
+[5] [6] [7] [8] [9] <images/overview.jpg, id=42, 436.5108pt x 387.3672pt>
+File: images/overview.jpg Graphic file (type jpg)
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overview
-1.jpg>]
-[5 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overview.
-jpg>] [6] [7] [8] [9]
-Overfull \hbox (47.73471pt too wide) in paragraph at lines 260--329
+<use images/overview.jpg>
+Package pdftex.def Info: images/overview.jpg used on input line 263.
+(pdftex.def)             Requested size: 312.9803pt x 277.74567pt.
+ [10 <C:/Users/user/Google Drive/papers/paper_QB_API/qbAPI-paper/images/overvie
+w.jpg>]
+Overfull \hbox (47.73471pt too wide) in paragraph at lines 285--354
 [][]
  []
 
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.bbl"
-[10]) [11]
+[11]) [12]
 ("C:\Users\user\Google Drive\papers\paper_QB_API\qbAPI-paper\qb_api_paper.aux")
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 2847 strings out of 493921
- 39251 string characters out of 3147285
- 104811 words of memory out of 3000000
- 6140 multiletter control sequences out of 15000+200000
+ 2851 strings out of 493921
+ 39303 string characters out of 3147285
+ 104839 words of memory out of 3000000
+ 6144 multiletter control sequences out of 15000+200000
  7970 words of font info for 29 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,10n,32p,864b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,10n,32p,1057b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTe
@@ -320,9 +312,9 @@ sfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on qb_api_paper.pdf (11 pages, 324747 bytes).
+Output written on qb_api_paper.pdf (12 pages, 404100 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
