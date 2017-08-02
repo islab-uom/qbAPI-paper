@@ -1,3 +1,4 @@
+
 \documentclass{llncs}
 \usepackage{graphicx}
 \usepackage{listings}
@@ -6,7 +7,7 @@
 
 \begin{document}
 
-\title{Facilitating the exploitations of Linked Open Statistical Data: JSON-QB API requirements and design criteria}
+\title{Facilitating the exploitation of Linked Open Statistical Data: JSON-QB API requirements and design criteria}
 
 \author{xxx ddd \and yyy sss}
 
@@ -42,13 +43,13 @@ Although the above portals use the same standard vocabularies to publish LOSD, t
 
 Except from the exploitation tools, complete platforms (e.g. PublishMyData\footnote{http://www.swirrl.com/}) are developed that aim both in to publishing and exploiting LOSD. In this case, published data can be consumed only by tools of the same platform, since different publishing practices are adopted. This lead to the creation of LOSD system silos (software and data) that cannot interoperate among each other.
 
-All the above tools and platforms follow the same traditional architecture (figure \ref{fig:asis}) where software is developed for all three layers, namely user interface (UI), business logic and data access. If several tools are created for the same portal (i.e. same publishing practices), then each tool has to develop separately  a similar data access layer. In addition, if a tool is to be used on another portal, then a new data access layer has to be created leading to additional costs. More importantly, the development of data access layers requires significant programming expertise in LOSD, a skill that is not widely available between developers.
+All the above tools and platforms follow the same traditional architecture (figure \ref{fig:asis}) where each tool has an integrated access layer. If several tools are created for the same portal (i.e. same publishing practices), then each tool has to develop separately  a similar data access layer. In addition, if a tool has to be used at another portal, then a new data access layer has to be created leading to additional costs. More importantly, the development of data access layers requires significant programming expertise in LOSD, a skill that is not widely available between developers.
 
-As a result, there is a need to standardize the interaction (i.e. input, output and functionality) with LOSD in a way that hides the LOSD complexity to the developers and offers a uniform way to access the data hiding any data discrepancies. 
+As a result, there is a need to standardize the interaction with LOSD in a way that hides the LOSD complexity to the developers and offers a uniform way to access the data hiding any data discrepancies. 
 
 \begin{figure}
 \begin{center}
-  \includegraphics[width=120mm]{images/asis.jpg}
+  \includegraphics[width=110mm]{images/asis.jpg}
   \end{center}
 \caption{Traditional architecture for LOSD tools}
 \label{fig:asis}
@@ -62,7 +63,7 @@ In order to achieve the objectives of the paper we adopt the following methodolo
 \item Collect user requirements from developers that currently create applications for LOSD. 
 \end{itemize}
 
-Currently, there exist many APIs that facilitate the interaction with data cubes. These APIs offer basic functionality that covers the cube's logical model, but they also support more advanced OLAP operations including aggregations, slicing, roll-up/drill-down etc. For example, the Oracle OLAP Java API \cite{ORACLEAPI} allows users to select, explore, aggregate, calculate, and perform other analytical tasks on data stored in an Oracle data warehouse. Olap4j\footnote{http://www.olap4j.org} is another Java API for accessing data cubes, which is compatible with many OLAP servers (e.g. Mondrian, Palo and SAP Business Warehouse). It enables the browsing of meta-data including the cubes, dimensions, hierarchies and members in an schema. Olap4j also supports Multidimensional Expressions (MDX) that is the query language for OLAP.
+Currently, there exist many APIs that facilitate the interaction with data cubes. These APIs offer basic functionality that covers the cube's logical model, but they also support more advanced OLAP operations including aggregations, slicing, roll-up/drill-down etc. For example, the Oracle OLAP Java API \cite{ORACLEAPI} allows users to select, explore, aggregate, calculate, and perform other analytical tasks on data stored in an Oracle data warehouse. Olap4j\footnote{http://www.olap4j.org} is another Java API for accessing data cubes, which is compatible with many OLAP servers (e.g. Mondrian, Palo and SAP Business Warehouse). It enables the browsing of meta-data including the cubes, dimensions and  hierarchies. Olap4j also supports Multidimensional Expressions (MDX) that is the query language for OLAP.
 
 There are also some REST APIs with similar functionality. The Data Brewery\footnote{http://databrewery.org/} offers a set of Python tools, including a REST API, for processing and analysing data cubes stored at a relational data base (e.g. MySQL, PostgreSQL). Apache Lens\footnote{lens.apache.org} is an analytics platform that integrates Hadoop with traditional data warehouses (e.g. Apache Hive, Amazon Redshift). Lens provides a REST API to handle data cubes, that also supports ``OLAP Cube QL" - a high level SQL like language to query data organized as data cubes.
 
@@ -76,33 +77,34 @@ Finally, to collect the user requirements, we established a continuous discussio
 
 \section{Requirements and design criteria}\label{sec:reqs}
 
-This section presents the requirements and design criteria related to the JSON-QB API. Generally, the API should follow patterns and practices familiar to ``mainstream" web developers, which facilitate the creation of visualisations and interactive applications that use the data. Moreover, it should be suitable for use by a wide range of statistics publishing organisations, so that data users can have a standard interface to LOSD. This will put constraints on the way that publishers manage their data, however those constraints should be reasonable and manageable. A summary of the requirements is presented at table \ref{tbl:req}.
-
-\begin{table}
-\caption{Summary of JSON-QB API requirements}
-\begin{tabular}{p{2cm}p{4cm}p{5.9cm}}
-\hline\noalign{\smallskip}
-\textbf{Type} & \textbf{Name} & \textbf{Description}\\
-\noalign{\smallskip}
-\hline
-\noalign{\smallskip}
-\multirow{3}{*}{functional} & Search data cubes & Search for data cubes at linked statistical data portals based on specified criteria\\\noalign{\smallskip}
- & Explore data cube structure & Having a cube at hand, get information about its structure (e.g. dimensions, measures, attributes)\\\noalign{\smallskip}
- & Slicing and filtering & Get a sub-set (slice or dice) of cube observations based on user-defined criteria\\\noalign{\smallskip}\hline
-\multirow{4}{*}{non-functional} & Ease of use & Provide a style of interaction that is familiar to web developers\\\noalign{\smallskip}
- & Uniform data access & Hide any discrepancies of published data cubes\\\noalign{\smallskip}
- & High performance & Provide responses fast even for demanding requests\\\noalign{\smallskip}
- & Extensibility & Enable the addition of new or the modification of existing functionality\\\noalign{\smallskip}
-\hline
-\end{tabular}
-\label{tbl:req}
-\end{table}
+This section presents the requirements and design criteria related to the JSON-QB API. Generally, the API should follow patterns and practices familiar to ``mainstream" web developers, which facilitate the creation of visualisations and interactive applications that use the data. Moreover, it should be suitable for use by a wide range of statistics publishing organisations, so that data users can have a standard interface to LOSD. This will put constraints on the way that publishers manage their data, however those constraints should be reasonable and manageable. 
+%A summary of the requirements is presented at table \ref{tbl:req}.
+%
+%\begin{table}
+%\caption{Summary of JSON-QB API requirements}
+%\begin{tabular}{p{2cm}p{4cm}p{5.9cm}}
+%\hline\noalign{\smallskip}
+%\textbf{Type} & \textbf{Name} & \textbf{Description}\\
+%\noalign{\smallskip}
+%\hline
+%\noalign{\smallskip}
+%\multirow{3}{*}{functional} & Search data cubes & Search for data cubes at linked statistical data portals based on specified criteria\\\noalign{\smallskip}
+% & Explore data cube structure & Having a cube at hand, get information about its structure (e.g. dimensions, measures, attributes)\\\noalign{\smallskip}
+% & Slicing and filtering & Get a sub-set (slice or dice) of cube observations based on user-defined criteria\\\noalign{\smallskip}\hline
+%\multirow{4}{*}{non-functional} & Ease of use & Provide a style of interaction that is familiar to web developers\\\noalign{\smallskip}
+% & Uniform data access & Hide any discrepancies of published data cubes\\\noalign{\smallskip}
+% & High performance & Provide responses fast even for demanding requests\\\noalign{\smallskip}
+% & Extensibility & Enable the addition of new or the modification of existing functionality\\\noalign{\smallskip}
+%\hline
+%\end{tabular}
+%\label{tbl:req}
+%\end{table}
 
 \subsection{Search data cubes}\label{sec:search}
 
 The linked data web currently contains many published data cubes and their number still increases. Thus, applications need to search for cubes based on some criteria. For example, get cubes that measure unemployment, or get cubes for Greece. The search can be even more complex e.g. get cubes about unemployment in Greece after 2010. To fully exploit the cube searching functionality, the JSON-QB API ideally should search over the linked data web and not be limited to a single RDF store.
 
-The search functionality can also be extended to support not only user specific criteria (as the previous examples), but also support the ``automatic" search of compatible cubes that could be processed together. For example, having a cube at hand search for other cubes that are compatible for combined statistical analysis, for visualisation of for browsing. The cube compatibility criteria is still an open issue and is out of the scope of this paper. 
+The search functionality can also be extended to support not only user specific criteria (as the previous examples), but also support the ``automatic" search of compatible cubes that could be processed together. For example, having a cube at hand search for other cubes that are compatible for combined statistical analysis, for visualisation or for browsing. The cube compatibility criteria is still an open issue and is out of the scope of this paper. 
 
 \subsection{Explore data cube structure}
 
@@ -207,9 +209,15 @@ While JSON-QB API aims in hiding some of the complexity of linked data, response
 
 \subsection{Uniform data access}
 
-Currently many linked data cubes have been published through official data portals, however a lot of them adopt different publishing practices. As a result, only case specific applications can be created that assume data published in a specific way. The JSON-QB API should work on top of any of these data, offering uniform access to the data and hide any discrepancies. Obviously, this will require different implementations to comply with the different publishing practices. However, using the API as the main way to deliver data, will reduce the need for data publishers to maintain public SPARQL endpoints.
+Currently many LOSD have been published, however a lot of them adopt different publishing practices. The JSON-QB API should work on top of any of these data, offering uniform access to the data and hide any discrepancies. Obviously, this will require separate implementations to comply with the different publishing practices. 
 
-Ideally, the standardization of the API specification will also lead to the formulation of an application profile for the QB vocabulary. The profile will include best practices that can be used by data publishers to provide data in a compatible way, facilitating in this way the development of generic linked data cube applications.
+Ideally, the standardization of the JSON-QB API specification will also contribute to the formulation of an application profile for the QB vocabulary. The profile will include best practices that can be used by data publishers to provide data in a compatible way, facilitating in this way the development of generic LOSD tools. This will add some constraints on the way that publishers manage their data, however those constraints will lead to greater exploitation of the data. 
+
+\begin{figure}[h!]
+  \includegraphics[width=110mm]{images/overview.jpg}
+\caption{Solution overview}
+\label{fig:overview}
+\end{figure}
 
 \subsection{High performance}
 
@@ -219,11 +227,7 @@ The JSON-QB API can improve performance of demanding SPARQL queries through effi
 
 Another task that can improve the performance of the API is the pre-computation of aggregations: i) across a dimension of the cube e.g. compute the SUM of the sales over time and thus ignore the time dimension of the cube and ii) across a hierarchy e.g. if a cube contains the election results at municipality level, then aggregations can be computed at region and at country level. The pre-computation of the aggregations facilitates the execution of queries, because there in not the need to compute the aggregations on-the-fly when requested. 
 
-\begin{figure}[h!]
-  \includegraphics[width=110mm]{images/overview.jpg}
-\caption{Solution overview}
-\label{fig:overview}
-\end{figure}
+
 
 \subsection{Extensibility}
 
@@ -233,17 +237,11 @@ Finally, the JSON-QB API should be extensible, thus take future growth into cons
 \item modification of existing functionality e.g. support modified search (see section \ref{sec:search}) of filtering options (see section \ref{sec:slice}).
 \end{itemize} 
 
-
-\section{Solution}\label{sec:solution}
-
-The architecture of the JSON-QB API (figure \ref{fig:overview}) is simple, it is developed as a middle-ware between LOSD and the applications that consume the data. It receives the API REST calls and translates them to SPARQL queries that are executed at LOSD portals. Then, the returned result are transforms to a JSON representation that can easily be consumed by applications, offering in this way uniform data access and abolishing the need to implement different data access layers for each application. Table \ref{tbl:apiexamplecall} presents some example API calls, the corresponding SPARQL queries and the returned JSON results.
-
-
 \begin{table}
 \caption{Example API calls}
 \begin{tabular}{|l|l|}
 \hline
-\multicolumn{2}{|c|}{\textbf{Dimensions}}\\
+\multicolumn{2}{|c|}{\textbf{Get cube Dimensions}}\\
 
 \hline
 API call &
@@ -261,8 +259,8 @@ PREFIX rdfs: http://www.w3.org/2000/01/rdf-schema#
 PREFIX ex: http://example.com/cube/
 select distinct ?dim ?label where {
     ex:unemployment qb:structure ?dsd.
-    ?dsd qb:component  ?cs.
-    ?cs qb:dimension ?dim.
+    ?dsd qb:component ?comp.
+    ?comp qb:dimension ?dim.
     ?dim rdfs:label ?label.} 
 \end{verbatim}
 \end{minipage}\\ \hline
@@ -275,33 +273,54 @@ JSON result &
    "label":"Reference area"},
   {"@id":  "http://example.com/dimension/refPeriod",
    "label":"Reference period"},
-   ....
+  {"@id":  "http://example.com/dimension/ageGroup",
+   "label":"Age group"},
  ]
 }  
 \end{verbatim}
 \end{minipage}\\\hline
 
-\multicolumn{2}{|c|}{\textbf{Slice}}\\
+\multicolumn{2}{|c|}{\textbf{Get a cube Slice}}\\
 
 \hline
 API call &
 \begin{minipage}[t]{4.5in}
  \begin{verbatim} 
-GET /slice
+GET /slice?dataset=http://example.com/cube/unemployment&
+           http://example.com/dimension/refPeriod=2016
 \end{verbatim}
 \end{minipage}\\\hline
 
 SPARQL query  &
 \begin{minipage}[t]{4.5in}
  \begin{verbatim} 
-XXX
+PREFIX qb: http://purl.org/linked-data/cube#
+PREFIX ex: http://example.com/cube/
+select ?obs ?refArea ?ageGroup ?unemployment where {
+       ?obs qb:dataSet ex:unemployment.
+       ?obs ex:refPeriod "2016".     
+       ?obs ex:refArea ?refArea.
+       ?obs ex:ageGroup ?ageGroup.
+       ?obs ex:unemploymentRate ?unemployment.
+}
 \end{verbatim}
 \end{minipage}\\ \hline
 
 JSON result &
 \begin{minipage}[t]{4.5in}
  \begin{verbatim} 
-YYY 
+{"observations":[
+      {"@id":"http://example.com/observation/1",
+        "refArea"         : "Greece",
+        "ageGroup"        : "25-34",
+        "unemploymentRate": 0.34
+       },
+       {"@id":"http://example.com/observation/2",
+        "refArea"         : "Greece",
+        "ageGroup"        : "35-44",
+        "unemploymentRate": 0.29
+       },.... ]
+}     
 \end{verbatim}
 \end{minipage}\\\hline
 
@@ -311,9 +330,12 @@ YYY
 \end{table}
 
 
-We have developed an implementation of the JSON-QB API\footnote{https://github.com/OpenGovIntelligence/json-qb-api-implementation} that can be installed on top of any RDF repository that stores data using the QB vocabulary, assuming that data follow a set of common publishing practices. This puts some constraints on the way that publishers manage their data, however those constraints should be reasonable and manageable. The implementation uses existing technologies including the Jersey framework\footnote{https://jersey.github.io/} for the implementation of the RESTful services, the Rdf4j\footnote{http://rdf4j.org/} Java framework for processing RDF data and the Gson\footnote{https://github.com/google/gson} Java library to serialize Java Objects into their JSON representation. The JSON-QB API implementation is still under development and the current version demonstrates only a subset of the proposed functionality.
+\section{Solution}\label{sec:solution}
 
-We have also developed a ``Cube Visualizer" (figure \ref{fig:cubeVisualizer}) application that presents a graphical representations of LOSD. The application was developed as a proof of concept that demonstrates the easy development of applications which consume data produced by the JSON-QB API implementation. User’s choices (e.g. measure and dimension to visualise) are translated to appropriate API calls. The returned data are presented to the user in the form of a chart (bar chart, pie chart,  area chart) can be also selected.
+The architecture of the JSON-QB API (figure \ref{fig:overview}) is simple, it is developed as a middle-ware between LOSD and the applications that consume the data. It receives the API REST calls and translates them to SPARQL queries that are executed at LOSD portals. Then, the returned result are transforms to a JSON representation that can easily be consumed by applications, offering in this way uniform data access and abolishing the need to implement different data access layers for each application. Table \ref{tbl:apiexamplecall} presents some example API calls, the corresponding SPARQL queries and the returned JSON results.
+
+
+We have developed an implementation of the JSON-QB API\footnote{https://github.com/OpenGovIntelligence/json-qb-api-implementation} that can be installed on top of any RDF repository that stores data using the QB vocabulary, assuming that data follow a set of common publishing practices. The implementation uses existing technologies including the Jersey framework\footnote{https://jersey.github.io/} for the implementation of the RESTful services, the Rdf4j\footnote{http://rdf4j.org/} Java framework for processing RDF data and the Gson\footnote{https://github.com/google/gson} Java library to serialize Java Objects into their JSON representation. The JSON-QB API implementation is still under development and the current version demonstrates only a subset of the proposed functionality.
 
 
 \begin{figure}[h!]
@@ -321,6 +343,8 @@ We have also developed a ``Cube Visualizer" (figure \ref{fig:cubeVisualizer}) ap
 \caption{Cube Visualizer}
 \label{fig:cubeVisualizer}
 \end{figure}
+
+In order to demonstrate the use of the JSON-QB API, we developed the ``Cube Visualizer" (figure \ref{fig:cubeVisualizer}), a proof of concept application that consume data produced by the JSON-QB API to presents a graphical representations of LOSD. User’s choices (e.g. measure and dimension to visualise) are translated to appropriate API calls. The returned data are presented to the user in the form of a chart e.g. bar chart, pie chart, area chart.
 
 
 \section{Conclusion}\label{sec:conclusion}
@@ -332,6 +356,10 @@ We should note that while our objective is to provide an API on top of a triple 
 
 
 
+\vskip 0.5cm
+\noindent \textbf{Acknowledgments.} Part of this work was funded by the European Commission
+within the H2020 Programme in the context of the OpenGovIntelligence
+project (http://OpenGovIntelligence.eu) under grant agreement no. 693849.
 
 \bibliographystyle{splncs03}
 
